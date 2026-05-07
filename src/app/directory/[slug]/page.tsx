@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DollarSign, Globe, ExternalLink, ArrowUpRight } from "lucide-react";
+import { MapPin, Mail, Phone, Globe, ExternalLink, ArrowUpRight } from "lucide-react";
 import { getFreelancer, getAllFreelancerSlugs } from "@/lib/api";
 import { getSkills } from "@/types/freelancer";
 import { ContactForm } from "@/components/ContactForm";
@@ -65,7 +65,7 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
   const fields = freelancer.freelancerFields;
   const skills = getSkills(fields);
   const profileImage =
-    fields?.profileImage?.sourceUrl ?? freelancer.featuredImage?.node.sourceUrl;
+    fields?.profile_image?.node.sourceUrl ?? freelancer.featuredImage?.node.sourceUrl;
 
   return (
     <>
@@ -74,7 +74,6 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
         description={fields?.tagline ?? undefined}
         url={`${siteUrl}/directory/${slug}`}
         image={profileImage}
-        jobTitle={freelancer.categories?.nodes?.[0]?.name}
         skills={skills.length > 0 ? skills : undefined}
       />
       <BreadcrumbSchema
@@ -122,9 +121,9 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
 
               <h1 className="text-xl font-bold" style={{ color: "#2C2420" }}>{freelancer.title}</h1>
 
-              {freelancer.categories?.nodes?.[0] && (
+              {fields?.location && (
                 <p className="text-sm mt-1 font-medium" style={{ color: "#C47A3A" }}>
-                  {freelancer.categories.nodes[0].name}
+                  {fields.location}
                 </p>
               )}
 
@@ -134,14 +133,27 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             </div>
 
             {/* Details */}
-            {(fields?.rate || fields?.website) && (
+            {(fields?.email || fields?.phone || fields?.website) && (
               <div className="bg-white rounded-2xl shadow-sm p-6 space-y-4" style={{ border: "1px solid #E8C99A" }}>
-                {fields.rate && (
+                {fields.email && (
                   <div className="flex items-start gap-3">
-                    <DollarSign size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
+                    <Mail size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Rate</p>
-                      <p className="text-sm" style={{ color: "#2C2420" }}>{fields.rate}</p>
+                      <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Email</p>
+                      <a href={`mailto:${fields.email}`} className="text-sm link-amber hover:underline break-all">
+                        {fields.email}
+                      </a>
+                    </div>
+                  </div>
+                )}
+                {fields.phone && (
+                  <div className="flex items-start gap-3">
+                    <Phone size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Phone</p>
+                      <a href={`tel:${fields.phone}`} className="text-sm link-amber hover:underline">
+                        {fields.phone}
+                      </a>
                     </div>
                   </div>
                 )}
@@ -165,9 +177,9 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             )}
 
             {/* Portfolio link */}
-            {fields?.portfolioLink && (
+            {fields?.portfolio_link && (
               <a
-                href={fields.portfolioLink}
+                href={fields.portfolio_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-md font-medium text-sm transition-colors btn-accent"
@@ -175,48 +187,6 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
                 <ArrowUpRight size={16} strokeWidth={2} />
                 View Portfolio
               </a>
-            )}
-
-            {/* Social links */}
-            {fields?.socialLinks && Object.values(fields.socialLinks).some(Boolean) && (
-              <div className="bg-white rounded-2xl shadow-sm p-6" style={{ border: "1px solid #E8C99A" }}>
-                <p className="text-xs font-medium uppercase tracking-wider mb-3" style={{ color: "#6B5E55" }}>Find me online</p>
-                <div className="flex flex-wrap gap-2">
-                  {fields.socialLinks.linkedin && (
-                    <a
-                      href={fields.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md font-medium transition-colors btn-outline-brand"
-                    >
-                      <ExternalLink size={13} strokeWidth={1.5} />
-                      LinkedIn
-                    </a>
-                  )}
-                  {fields.socialLinks.github && (
-                    <a
-                      href={fields.socialLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md font-medium transition-colors btn-outline-brand"
-                    >
-                      <ExternalLink size={13} strokeWidth={1.5} />
-                      GitHub
-                    </a>
-                  )}
-                  {fields.socialLinks.twitter && (
-                    <a
-                      href={fields.socialLinks.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md font-medium transition-colors btn-outline-brand"
-                    >
-                      <ExternalLink size={13} strokeWidth={1.5} />
-                      Twitter / X
-                    </a>
-                  )}
-                </div>
-              </div>
             )}
           </aside>
 

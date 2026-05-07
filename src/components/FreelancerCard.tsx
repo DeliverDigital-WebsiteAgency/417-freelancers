@@ -57,9 +57,6 @@ export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem 
           {categories?.nodes?.[0] && (
             <span className="text-xs" style={{ color: "#6B5E55" }}>{categories.nodes[0].name}</span>
           )}
-          {fields?.rate && (
-            <span className="text-sm font-semibold" style={{ color: "#7C4A1E" }}>{fields.rate}</span>
-          )}
         </div>
       </div>
     </Link>

@@ -7,18 +7,15 @@ export interface FreelancerSEO {
 export interface FreelancerFields {
   tagline?: string | null;
   bio?: string | null;
+  location?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  website?: string | null;
   skill1?: string | null;
   skill2?: string | null;
   skill3?: string | null;
-  website?: string | null;
-  rate?: string | null;
-  portfolioLink?: string | null;
-  profileImage?: { sourceUrl: string; altText: string } | null;
-  socialLinks?: {
-    linkedin?: string | null;
-    github?: string | null;
-    twitter?: string | null;
-  } | null;
+  profile_image?: { node: { sourceUrl: string; altText: string } } | null;
+  portfolio_link?: string | null;
 }
 
 export interface Freelancer {
@@ -45,7 +42,7 @@ export interface FreelancerListItem {
   featuredImage?: {
     node: { sourceUrl: string; altText: string };
   } | null;
-  freelancerFields?: Pick<FreelancerFields, "tagline" | "skill1" | "skill2" | "skill3" | "rate"> | null;
+  freelancerFields?: Pick<FreelancerFields, "tagline" | "skill1" | "skill2" | "skill3"> | null;
   categories?: {
     nodes: { name: string; slug: string }[];
   } | null;

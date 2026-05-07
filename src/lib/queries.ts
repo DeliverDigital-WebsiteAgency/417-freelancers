@@ -13,18 +13,13 @@ const FREELANCER_CARD_FIELDS = /* GraphQL */ `
         altText
       }
     }
-    categories {
-      nodes {
-        name
-        slug
+    freelancerFields: freelancerFieldGroups {
+      ... on FreelancerFieldGroups {
+        tagline
+        skill1
+        skill2
+        skill3
       }
-    }
-    freelancerFields {
-      tagline
-      skill1
-      skill2
-      skill3
-      rate
     }
   }
 `;
@@ -71,29 +66,24 @@ export const GET_FREELANCER = /* GraphQL */ `
           altText
         }
       }
-      categories {
-        nodes {
-          name
-          slug
-        }
-      }
-      freelancerFields {
-        tagline
-        bio
-        skill1
-        skill2
-        skill3
-        website
-        rate
-        portfolioLink
-        profileImage {
-          sourceUrl
-          altText
-        }
-        socialLinks {
-          linkedin
-          github
-          twitter
+      freelancerFields: freelancerFieldGroups {
+        ... on FreelancerFieldGroups {
+          tagline
+          bio
+          location
+          email
+          phone
+          website
+          skill1
+          skill2
+          skill3
+          profile_image {
+            node {
+              sourceUrl
+              altText
+            }
+          }
+          portfolio_link
         }
       }
       seo {
