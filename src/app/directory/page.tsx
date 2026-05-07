@@ -4,7 +4,7 @@ import { getFreelancers } from "@/lib/api";
 import { FreelancerCard } from "@/components/FreelancerCard";
 import { BreadcrumbSchema } from "@/components/SchemaOrg";
 
-export const revalidate = 3600;
+export const revalidate = 90;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
 

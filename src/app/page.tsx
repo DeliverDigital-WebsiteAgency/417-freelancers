@@ -6,7 +6,7 @@ import {
 import { getFreelancers } from "@/lib/api";
 import { FreelancerCard } from "@/components/FreelancerCard";
 
-export const revalidate = 3600;
+export const revalidate = 90;
 
 const categories = [
   { label: "Web Development", slug: "web-development", Icon: Monitor },

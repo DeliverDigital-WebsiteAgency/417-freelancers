@@ -8,7 +8,7 @@ import { getFreelancer, getAllFreelancerSlugs } from "@/lib/api";
 import { ContactForm } from "@/components/ContactForm";
 import { FreelancerSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
 
-export const revalidate = 3600;
+export const revalidate = 90;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
 
