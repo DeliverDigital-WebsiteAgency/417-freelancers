@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SearchX } from "lucide-react";
 import { getFreelancers } from "@/lib/api";
 import { FreelancerCard } from "@/components/FreelancerCard";
 import { BreadcrumbSchema } from "@/components/SchemaOrg";
@@ -65,8 +66,8 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Freelancer Directory</h1>
-          <p className="mt-2 text-gray-500">
+          <h1 className="text-3xl font-bold" style={{ color: "#2C2420" }}>Freelancer Directory</h1>
+          <p className="mt-2" style={{ color: "#6B5E55" }}>
             {category
               ? `Showing ${activeCategory?.label ?? category} freelancers in the 417 area`
               : "All freelancers in Springfield, MO and the 417 area"}
@@ -82,11 +83,12 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
               <a
                 key={cat.value}
                 href={href}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                style={
                   isActive
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white text-gray-600 border border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
-                }`}
+                    ? { backgroundColor: "#7C4A1E", color: "#F5EFE6" }
+                    : { backgroundColor: "white", color: "#6B5E55", border: "1px solid #E8C99A" }
+                }
               >
                 {cat.label}
               </a>
@@ -104,17 +106,17 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
             </div>
             {hasNextPage && (
               <div className="mt-12 text-center">
-                <p className="text-sm text-gray-500">More freelancers available — pagination coming soon.</p>
+                <p className="text-sm" style={{ color: "#6B5E55" }}>More freelancers available. Pagination coming soon.</p>
               </div>
             )}
           </>
         ) : (
-          <div className="text-center py-20 text-gray-400">
-            <div className="text-5xl mb-4">🔍</div>
-            <p className="text-lg font-medium text-gray-600">No freelancers found</p>
-            <p className="mt-1 text-sm">
+          <div className="text-center py-20">
+            <SearchX size={48} className="mx-auto mb-4" style={{ color: "#E8C99A" }} strokeWidth={1.5} />
+            <p className="text-lg font-medium" style={{ color: "#2C2420" }}>No freelancers found</p>
+            <p className="mt-1 text-sm" style={{ color: "#6B5E55" }}>
               {category ? "Try a different category or " : ""}
-              <a href="/directory" className="text-indigo-600 hover:underline">
+              <a href="/directory" style={{ color: "#C47A3A" }} className="hover:underline">
                 view all freelancers
               </a>
             </p>

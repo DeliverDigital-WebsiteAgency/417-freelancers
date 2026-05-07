@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LocalBusinessSchema } from "@/components/SchemaOrg";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
 
@@ -43,11 +43,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="min-h-full flex flex-col bg-gray-50 text-gray-900 font-sans">
+      <body className="min-h-full flex flex-col font-sans" style={{ backgroundColor: "#F5EFE6", color: "#6B5E55" }}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

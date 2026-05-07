@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import React from "react";
+import { MapPin, DollarSign, Globe, ExternalLink } from "lucide-react";
 import { getFreelancer, getAllFreelancerSlugs } from "@/lib/api";
 import { ContactForm } from "@/components/ContactForm";
 import { FreelancerSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
@@ -53,10 +55,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const availabilityBadge: Record<string, { label: string; color: string }> = {
-  available: { label: "Available for work", color: "bg-green-100 text-green-800" },
-  busy: { label: "Limited availability", color: "bg-yellow-100 text-yellow-800" },
-  unavailable: { label: "Not available", color: "bg-red-100 text-red-800" },
+const availabilityBadge: Record<string, { label: string; color: string; bg: string }> = {
+  available: { label: "Available for work", color: "#166534", bg: "#dcfce7" },
+  busy: { label: "Limited availability", color: "#854d0e", bg: "#fef9c3" },
+  unavailable: { label: "Not available", color: "#991b1b", bg: "#fee2e2" },
 };
 
 export default async function FreelancerProfilePage({ params }: PageProps) {
@@ -92,84 +94,92 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-400 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-indigo-600">Home</Link>
-          <span>/</span>
-          <Link href="/directory" className="hover:text-indigo-600">Directory</Link>
-          <span>/</span>
-          <span className="text-gray-700">{freelancer.title}</span>
+        <nav className="text-sm mb-8 flex items-center gap-2" style={{ color: "#6B5E55" }}>
+          <Link href="/" className="hover:underline" style={{ color: "#C47A3A" }}>Home</Link>
+          <span style={{ color: "#E8C99A" }}>/</span>
+          <Link href="/directory" className="hover:underline" style={{ color: "#C47A3A" }}>Directory</Link>
+          <span style={{ color: "#E8C99A" }}>/</span>
+          <span style={{ color: "#2C2420" }}>{freelancer.title}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-6">
             {/* Profile card */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center">
+            <div className="bg-white rounded-2xl shadow-sm p-6 text-center" style={{ border: "1px solid #E8C99A" }}>
               <div className="relative w-28 h-28 mx-auto mb-4">
                 {profileImage ? (
                   <Image
                     src={profileImage}
                     alt={freelancer.title}
                     fill
-                    className="rounded-full object-cover ring-4 ring-indigo-50"
+                    className="rounded-full object-cover ring-4"
+                    style={{ "--tw-ring-color": "#E8C99A" } as React.CSSProperties}
                     sizes="112px"
                   />
                 ) : (
-                  <div className="w-full h-full rounded-full bg-indigo-100 flex items-center justify-center text-indigo-400 text-4xl font-bold">
+                  <div
+                    className="w-full h-full rounded-full flex items-center justify-center text-4xl font-bold"
+                    style={{ backgroundColor: "#E8C99A", color: "#7C4A1E" }}
+                  >
                     {freelancer.title.charAt(0)}
                   </div>
                 )}
               </div>
 
-              <h1 className="text-xl font-bold text-gray-900">{freelancer.title}</h1>
+              <h1 className="text-xl font-bold" style={{ color: "#2C2420" }}>{freelancer.title}</h1>
 
               {freelancer.categories?.nodes?.[0] && (
-                <p className="text-sm text-indigo-600 mt-1 font-medium">
+                <p className="text-sm mt-1 font-medium" style={{ color: "#C47A3A" }}>
                   {freelancer.categories.nodes[0].name}
                 </p>
               )}
 
               {fields?.tagline && (
-                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{fields.tagline}</p>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "#6B5E55" }}>{fields.tagline}</p>
               )}
 
               {avail && (
-                <span className={`mt-3 inline-block text-xs font-medium px-3 py-1 rounded-full ${avail.color}`}>
+                <span
+                  className="mt-3 inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style={{ color: avail.color, backgroundColor: avail.bg }}
+                >
                   {avail.label}
                 </span>
               )}
             </div>
 
             {/* Details */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+            <div className="bg-white rounded-2xl shadow-sm p-6 space-y-4" style={{ border: "1px solid #E8C99A" }}>
               {fields?.location && (
                 <div className="flex items-start gap-3">
-                  <span className="text-gray-400 text-lg">📍</span>
+                  <MapPin size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Location</p>
-                    <p className="text-sm text-gray-800">{fields.location}</p>
+                    <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Location</p>
+                    <p className="text-sm" style={{ color: "#2C2420" }}>{fields.location}</p>
                   </div>
                 </div>
               )}
               {fields?.rate && (
                 <div className="flex items-start gap-3">
-                  <span className="text-gray-400 text-lg">💰</span>
+                  <DollarSign size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Rate</p>
-                    <p className="text-sm text-gray-800">{fields.rate}</p>
+                    <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Rate</p>
+                    <p className="text-sm" style={{ color: "#2C2420" }}>{fields.rate}</p>
                   </div>
                 </div>
               )}
               {fields?.website && (
                 <div className="flex items-start gap-3">
-                  <span className="text-gray-400 text-lg">🌐</span>
+                  <Globe size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Website</p>
+                    <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Website</p>
                     <a
                       href={fields.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-indigo-600 hover:underline break-all"
+                      className="text-sm hover:underline break-all"
+                      style={{ color: "#C47A3A" }}
                     >
                       {fields.website.replace(/^https?:\/\//, "")}
                     </a>
@@ -180,24 +190,42 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
 
             {/* Social links */}
             {fields?.socialLinks && Object.values(fields.socialLinks).some(Boolean) && (
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Find me online</p>
+              <div className="bg-white rounded-2xl shadow-sm p-6" style={{ border: "1px solid #E8C99A" }}>
+                <p className="text-xs font-medium uppercase tracking-wider mb-3" style={{ color: "#6B5E55" }}>Find me online</p>
                 <div className="flex gap-3">
                   {fields.socialLinks.linkedin && (
-                    <a href={fields.socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
-                      className="text-sm px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors font-medium">
+                    <a
+                      href={fields.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md transition-colors font-medium"
+                      style={{ backgroundColor: "#F5EFE6", color: "#7C4A1E", border: "1px solid #E8C99A" }}
+                    >
+                      <ExternalLink size={14} strokeWidth={1.5} />
                       LinkedIn
                     </a>
                   )}
                   {fields.socialLinks.github && (
-                    <a href={fields.socialLinks.github} target="_blank" rel="noopener noreferrer"
-                      className="text-sm px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium">
+                    <a
+                      href={fields.socialLinks.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md transition-colors font-medium"
+                      style={{ backgroundColor: "#F5EFE6", color: "#7C4A1E", border: "1px solid #E8C99A" }}
+                    >
+                      <ExternalLink size={14} strokeWidth={1.5} />
                       GitHub
                     </a>
                   )}
                   {fields.socialLinks.twitter && (
-                    <a href={fields.socialLinks.twitter} target="_blank" rel="noopener noreferrer"
-                      className="text-sm px-3 py-1.5 bg-sky-50 text-sky-700 rounded-lg hover:bg-sky-100 transition-colors font-medium">
+                    <a
+                      href={fields.socialLinks.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md transition-colors font-medium"
+                      style={{ backgroundColor: "#F5EFE6", color: "#7C4A1E", border: "1px solid #E8C99A" }}
+                    >
+                      <ExternalLink size={14} strokeWidth={1.5} />
                       Twitter / X
                     </a>
                   )}
@@ -211,9 +239,10 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             {/* About */}
             {fields?.bio && (
               <section>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">About</h2>
+                <h2 className="text-xl font-semibold mb-4" style={{ color: "#2C2420" }}>About</h2>
                 <div
-                  className="prose prose-sm prose-indigo max-w-none text-gray-600 leading-relaxed"
+                  className="prose prose-sm max-w-none leading-relaxed"
+                  style={{ color: "#6B5E55" }}
                   dangerouslySetInnerHTML={{ __html: fields.bio }}
                 />
               </section>
@@ -222,12 +251,13 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             {/* Skills */}
             {fields?.skills && fields.skills.length > 0 && (
               <section>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">Skills</h2>
+                <h2 className="text-xl font-semibold mb-4" style={{ color: "#2C2420" }}>Skills</h2>
                 <div className="flex flex-wrap gap-2">
                   {fields.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium"
+                      className="px-3 py-1.5 rounded-full text-sm font-medium"
+                      style={{ backgroundColor: "#E8C99A", color: "#2C2420" }}
                     >
                       {skill}
                     </span>
@@ -239,12 +269,13 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             {/* Portfolio */}
             {fields?.portfolioItems && fields.portfolioItems.length > 0 && (
               <section>
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Portfolio</h2>
+                <h2 className="text-xl font-semibold mb-6" style={{ color: "#2C2420" }}>Portfolio</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {fields.portfolioItems.map((item, i) => (
                     <div
                       key={i}
-                      className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+                      className="bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow"
+                      style={{ border: "1px solid #E8C99A" }}
                     >
                       {item.image?.sourceUrl && (
                         <div className="relative h-44">
@@ -258,9 +289,9 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
                         </div>
                       )}
                       <div className="p-4">
-                        <h3 className="font-semibold text-gray-900 text-sm">{item.title}</h3>
+                        <h3 className="font-semibold text-sm" style={{ color: "#2C2420" }}>{item.title}</h3>
                         {item.description && (
-                          <p className="mt-1 text-xs text-gray-500 leading-relaxed line-clamp-3">
+                          <p className="mt-1 text-xs leading-relaxed line-clamp-3" style={{ color: "#6B5E55" }}>
                             {item.description}
                           </p>
                         )}
@@ -269,9 +300,10 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
                             href={item.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-2 inline-block text-xs text-indigo-600 hover:underline font-medium"
+                            className="mt-2 inline-block text-xs hover:underline font-medium"
+                            style={{ color: "#C47A3A" }}
                           >
-                            View project →
+                            View project
                           </a>
                         )}
                       </div>
@@ -283,10 +315,10 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
 
             {/* Contact */}
             <section id="contact">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">
+              <h2 className="text-xl font-semibold mb-6" style={{ color: "#2C2420" }}>
                 Get in touch with {freelancer.title.split(" ")[0]}
               </h2>
-              <div className="bg-white rounded-2xl border border-gray-100 p-6">
+              <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8C99A" }}>
                 <ContactForm
                   freelancerName={freelancer.title}
                   freelancerSlug={slug}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Mail, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
@@ -14,9 +15,9 @@ export default function ContactPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-        <p className="text-lg text-gray-500">
-          Questions about the directory? Want to apply as a freelancer? We&apos;d love to hear
+        <h1 className="text-4xl font-bold mb-4" style={{ color: "#2C2420" }}>Contact Us</h1>
+        <p className="text-lg" style={{ color: "#6B5E55" }}>
+          Questions about the directory? Want to apply as a freelancer? We would love to hear
           from you.
         </p>
       </div>
@@ -25,41 +26,42 @@ export default function ContactPage() {
         {/* Info */}
         <aside className="md:col-span-2 space-y-6">
           <div>
-            <h2 className="font-semibold text-gray-900 mb-3">Get in touch</h2>
-            <div className="space-y-4 text-sm text-gray-600">
+            <h2 className="font-semibold mb-3" style={{ color: "#2C2420" }}>Get in touch</h2>
+            <div className="space-y-4 text-sm" style={{ color: "#6B5E55" }}>
               <div className="flex items-start gap-3">
-                <span className="text-xl">✉️</span>
+                <Mail size={18} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                 <div>
-                  <p className="font-medium text-gray-700">Email</p>
+                  <p className="font-medium" style={{ color: "#2C2420" }}>Email</p>
                   <a
                     href="mailto:hello@417freelancers.com"
-                    className="text-indigo-600 hover:underline"
+                    style={{ color: "#C47A3A" }}
+                    className="hover:underline"
                   >
                     hello@417freelancers.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-xl">📍</span>
+                <MapPin size={18} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
                 <div>
-                  <p className="font-medium text-gray-700">Location</p>
+                  <p className="font-medium" style={{ color: "#2C2420" }}>Location</p>
                   <p>Springfield, MO 65801</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-indigo-50 rounded-xl p-5">
-            <h3 className="font-semibold text-indigo-900 mb-2 text-sm">Applying to join?</h3>
-            <p className="text-xs text-indigo-700 leading-relaxed">
+          <div className="rounded-xl p-5" style={{ backgroundColor: "#E8C99A" }}>
+            <h3 className="font-semibold mb-2 text-sm" style={{ color: "#2C2420" }}>Applying to join?</h3>
+            <p className="text-xs leading-relaxed" style={{ color: "#6B5E55" }}>
               Include your name, specialty, website or portfolio link, and a brief description
-              of the services you offer. We review applications within 3–5 business days.
+              of the services you offer. We review applications within 3 to 5 business days.
             </p>
           </div>
         </aside>
 
         {/* Form */}
-        <div className="md:col-span-3 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+        <div className="md:col-span-3 bg-white rounded-2xl p-6 shadow-sm" style={{ border: "1px solid #E8C99A" }}>
           <ContactForm />
         </div>
       </div>
