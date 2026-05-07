@@ -30,11 +30,11 @@ const FREELANCER_CARD_FIELDS = /* GraphQL */ `
 
 export const GET_FREELANCERS = /* GraphQL */ `
   ${FREELANCER_CARD_FIELDS}
-  query GetFreelancers($first: Int = 24, $after: String, $category: String) {
+  query GetFreelancers($first: Int = 24, $after: String) {
     freelancers(
       first: $first
       after: $after
-      where: { categoryName: $category, status: PUBLISH }
+      where: { status: PUBLISH }
     ) {
       nodes {
         ...FreelancerCardFields

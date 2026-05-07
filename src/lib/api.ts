@@ -20,7 +20,6 @@ export async function getFreelancers(opts?: {
   const data = await fetchGraphQL<FreelancersQueryResult>(GET_FREELANCERS, {
     first: opts?.first ?? 24,
     after: opts?.after ?? null,
-    category: opts?.category ?? null,
   });
 
   return {
