@@ -4,24 +4,15 @@ export interface FreelancerSEO {
   opengraphImage?: { sourceUrl: string } | null;
 }
 
-export interface FreelancerPortfolioItem {
-  title: string;
-  description: string;
-  url?: string | null;
-  image?: { sourceUrl: string; altText: string } | null;
-}
-
 export interface FreelancerFields {
   tagline?: string | null;
   bio?: string | null;
-  location?: string | null;
-  email?: string | null;
-  phone?: string | null;
+  skill1?: string | null;
+  skill2?: string | null;
+  skill3?: string | null;
   website?: string | null;
-  skills?: string[] | null;
   rate?: string | null;
-  availability?: "available" | "busy" | "unavailable" | null;
-  portfolioItems?: FreelancerPortfolioItem[] | null;
+  portfolioLink?: string | null;
   profileImage?: { sourceUrl: string; altText: string } | null;
   socialLinks?: {
     linkedin?: string | null;
@@ -54,10 +45,7 @@ export interface FreelancerListItem {
   featuredImage?: {
     node: { sourceUrl: string; altText: string };
   } | null;
-  freelancerFields?: Pick<
-    FreelancerFields,
-    "tagline" | "location" | "skills" | "rate" | "availability"
-  > | null;
+  freelancerFields?: Pick<FreelancerFields, "tagline" | "skill1" | "skill2" | "skill3" | "rate"> | null;
   categories?: {
     nodes: { name: string; slug: string }[];
   } | null;
@@ -81,4 +69,8 @@ export interface AllFreelancerSlugsResult {
   freelancers: {
     nodes: { slug: string }[];
   };
+}
+
+export function getSkills(fields: Pick<FreelancerFields, "skill1" | "skill2" | "skill3"> | null | undefined): string[] {
+  return [fields?.skill1, fields?.skill2, fields?.skill3].filter((s): s is string => Boolean(s?.trim()));
 }

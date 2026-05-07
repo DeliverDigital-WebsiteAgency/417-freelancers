@@ -47,9 +47,7 @@ interface FreelancerSchemaProps {
   description?: string;
   url: string;
   image?: string;
-  email?: string;
   jobTitle?: string;
-  location?: string;
   skills?: string[];
 }
 
@@ -58,9 +56,7 @@ export function FreelancerSchema({
   description,
   url,
   image,
-  email,
   jobTitle,
-  location,
   skills,
 }: FreelancerSchemaProps) {
   const schema: Record<string, unknown> = {
@@ -70,16 +66,7 @@ export function FreelancerSchema({
     url,
     ...(description && { description }),
     ...(image && { image }),
-    ...(email && { email }),
     ...(jobTitle && { jobTitle }),
-    ...(location && {
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: location,
-        addressRegion: "MO",
-        addressCountry: "US",
-      },
-    }),
     ...(skills &&
       skills.length > 0 && {
         knowsAbout: skills,

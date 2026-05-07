@@ -39,34 +39,39 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  // Option B: send via Resend (https://resend.com)
-  const resendKey = process.env.RESEND_API_KEY;
+  // Option B: send via SendGrid
+  const sendgridKey = process.env.SENDGRID_API_KEY;
   const toEmail = process.env.CONTACT_EMAIL;
-  if (resendKey && toEmail) {
-    const res = await fetch("https://api.resend.com/emails", {
+  if (sendgridKey && toEmail) {
+    const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${resendKey}`,
+        Authorization: `Bearer ${sendgridKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "417 Freelancers <noreply@417freelancers.com>",
-        to: [toEmail],
-        reply_to: email,
+        from: { email: "noreply@417freelancers.com", name: "417 Freelancers" },
+        reply_to: { email, name },
+        to: [{ email: toEmail }],
         subject: `[Contact] ${subject}`,
-        text: [
-          `From: ${name} <${email}>`,
-          freelancerSlug ? `Freelancer: ${freelancerSlug}` : "",
-          "",
-          message,
-        ]
-          .filter(Boolean)
-          .join("\n"),
+        content: [
+          {
+            type: "text/plain",
+            value: [
+              `From: ${name} <${email}>`,
+              freelancerSlug ? `Freelancer: ${freelancerSlug}` : "",
+              "",
+              message,
+            ]
+              .filter(Boolean)
+              .join("\n"),
+          },
+        ],
       }),
     });
 
     if (!res.ok) {
-      console.error("Resend failed", await res.text());
+      console.error("SendGrid failed", await res.text());
       return NextResponse.json({ error: "Failed to send email" }, { status: 502 });
     }
     return NextResponse.json({ ok: true });

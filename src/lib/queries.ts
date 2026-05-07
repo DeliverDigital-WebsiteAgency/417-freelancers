@@ -21,10 +21,10 @@ const FREELANCER_CARD_FIELDS = /* GraphQL */ `
     }
     freelancerFields {
       tagline
-      location
+      skill1
+      skill2
+      skill3
       rate
-      availability
-      skills
     }
   }
 `;
@@ -80,13 +80,12 @@ export const GET_FREELANCER = /* GraphQL */ `
       freelancerFields {
         tagline
         bio
-        location
-        email
-        phone
+        skill1
+        skill2
+        skill3
         website
-        skills
         rate
-        availability
+        portfolioLink
         profileImage {
           sourceUrl
           altText
@@ -95,15 +94,6 @@ export const GET_FREELANCER = /* GraphQL */ `
           linkedin
           github
           twitter
-        }
-        portfolioItems {
-          title
-          description
-          url
-          image {
-            sourceUrl
-            altText
-          }
         }
       }
       seo {

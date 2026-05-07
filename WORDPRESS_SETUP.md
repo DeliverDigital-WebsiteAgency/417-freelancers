@@ -1,142 +1,161 @@
-# WordPress Headless CMS Setup — cms.417freelancers.com
+# WordPress Headless CMS Setup - cms.417freelancers.com
 
-## Required WordPress Plugins
+## Required Plugins
 
-Install and activate these plugins on your WordPress instance at cms.417freelancers.com:
+Install and activate these on your WordPress instance. All are free.
 
 | Plugin | Purpose |
 |--------|---------|
-| [WPGraphQL](https://www.wpgraphql.com/) | GraphQL API layer |
-| [WPGraphQL for Advanced Custom Fields](https://www.wpgraphql.com/acf) | Expose ACF fields in GraphQL |
-| [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/) | Custom freelancer fields |
-| [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) | `freelancer` CPT |
-| [WP Webhooks](https://wordpress.org/plugins/wp-webhooks/) | Trigger Vercel ISR revalidation |
-| [Yoast SEO](https://yoast.com/wordpress/plugins/seo/) | SEO fields (optional) |
-| [WPGraphQL Yoast SEO Addon](https://github.com/ashhitch/wp-graphql-yoast-seo) | Expose Yoast SEO via GraphQL |
+| [WPGraphQL](https://wordpress.org/plugins/wp-graphql/) | GraphQL API layer |
+| [WPGraphQL for ACF](https://wordpress.org/plugins/wpgraphql-acf/) | Expose ACF fields in GraphQL |
+| [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) | Custom freelancer fields (free version) |
+| [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) | `freelancer` custom post type |
+| [WP Webhooks](https://wordpress.org/plugins/wp-webhooks/) | Trigger Vercel ISR revalidation on save |
 
 ---
 
 ## 1. Custom Post Type: `freelancer`
 
-In **Custom Post Type UI**, create a post type with these settings:
+In **Custom Post Type UI > Add/Edit Post Types**, create:
 
-- **Post Type Slug**: `freelancer`
-- **Plural Label**: Freelancers
-- **Singular Label**: Freelancer
-- **Show in GraphQL**: ✅ Yes
-- **GraphQL Single Name**: `freelancer`
-- **GraphQL Plural Name**: `freelancers`
-- **Supports**: title, editor, thumbnail, custom-fields
-- **Has Archive**: Yes → slug: `directory`
+| Setting | Value |
+|---------|-------|
+| Post Type Slug | `freelancer` |
+| Plural Label | Freelancers |
+| Singular Label | Freelancer |
+| Show in GraphQL | Yes |
+| GraphQL Single Name | `freelancer` |
+| GraphQL Plural Name | `freelancers` |
+| Supports | Title, Editor, Thumbnail |
+| Has Archive | Yes, slug: `directory` |
 
 ---
 
 ## 2. ACF Field Group: Freelancer Details
 
-Create a field group named **Freelancer Details**, assigned to post type `freelancer`.
+In **ACF > Field Groups > Add New**, create a group named **Freelancer Details** assigned to post type `freelancer`.
 
-Mark each field **Show in GraphQL: Yes**.
+Every field must have **Show in GraphQL** set to Yes.
 
-| Field Name (slug) | Type | Notes |
-|---|---|---|
-| `tagline` | Text | One-line description |
-| `bio` | WYSIWYG | Full bio / about section |
-| `location` | Text | e.g. "Springfield, MO" |
-| `email` | Email | Contact email |
-| `phone` | Text | Phone number |
-| `website` | URL | Personal/business website |
-| `skills` | Repeater → Text `skill` | List of skills |
-| `rate` | Text | e.g. "$75/hr" or "Project-based" |
-| `availability` | Select | Choices: available, busy, unavailable |
-| `profile_image` | Image | Headshot (returns URL) |
-| `social_links` | Group | Contains linkedin, github, twitter (URL fields) |
-| `portfolio_items` | Repeater | Sub-fields below |
+### Fields to create
 
-**portfolio_items sub-fields:**
+| Field Label | Field Name (slug) | Field Type | Notes |
+|-------------|-------------------|------------|-------|
+| Tagline | `tagline` | Text | One-line summary shown on cards |
+| Bio | `bio` | WYSIWYG | Full about section |
+| Skill 1 | `skill_1` | Text | First skill tag |
+| Skill 2 | `skill_2` | Text | Second skill tag |
+| Skill 3 | `skill_3` | Text | Third skill tag |
+| Rate | `rate` | Text | e.g. "$75/hr" or "Project-based" |
+| Website | `website` | URL | Personal or business site |
+| Portfolio Link | `portfolio_link` | URL | Behance, Dribbble, custom portfolio, etc. |
+| Profile Image | `profile_image` | Image | Headshot |
+| Social Links | `social_links` | Group | Container for social URLs |
 
-| Field | Type |
-|---|---|
-| `title` | Text |
-| `description` | Textarea |
-| `url` | URL |
-| `image` | Image |
+Inside the **Social Links** group, add:
+
+| Field Label | Field Name | Field Type |
+|-------------|-----------|------------|
+| LinkedIn | `linkedin` | URL |
+| GitHub | `github` | URL |
+| Twitter / X | `twitter` | URL |
+
+The Group field type is available in ACF free (version 5+).
+
+### ACF field name to GraphQL field name
+
+WPGraphQL converts snake_case field names to camelCase:
+
+| ACF name | GraphQL name |
+|----------|-------------|
+| `skill_1` | `skill1` |
+| `skill_2` | `skill2` |
+| `skill_3` | `skill3` |
+| `portfolio_link` | `portfolioLink` |
+| `profile_image` | `profileImage` |
+| `social_links` | `socialLinks` |
 
 ---
 
-## 3. WordPress GraphQL Settings
+## 3. WPGraphQL Settings
 
-Go to **GraphQL > Settings** and enable:
+Go to **GraphQL > Settings**:
 
-- ✅ Enable Public Introspection
-- ✅ Enable GraphQL Debug Mode (disable in production)
-- Set **GraphQL Endpoint** to `/graphql`
-
-Enable CORS for your Vercel domain:
-- Add `https://417freelancers.com` and `https://*.vercel.app` to allowed origins.
+- Enable Public Introspection
+- Set GraphQL endpoint to `/graphql`
+- Add CORS allowed origins: `https://417freelancers.com` and `https://*.vercel.app`
 
 ---
 
-## 4. Vercel Revalidation Webhook
+## 4. Vercel Revalidation Webhook (optional but recommended)
 
-On every freelancer post save/publish, WordPress should POST to your Next.js revalidation endpoint.
+Without this, updated freelancer profiles appear within 90 seconds automatically. With this webhook, changes appear instantly on save.
 
 In **WP Webhooks > Send Data**, create a trigger:
 
-- **Trigger**: Post Updated / Post Published
-- **URL**: `https://417freelancers.com/api/revalidate`
-- **Method**: POST
-- **Headers**: `Content-Type: application/json`
-- **Body** (custom template):
-  ```json
-  {
-    "secret": "YOUR_REVALIDATION_SECRET",
-    "postType": "freelancer",
-    "slug": "{post_name}"
-  }
-  ```
+- Trigger: Post Updated + Post Published
+- URL: `https://417freelancers.com/api/revalidate`
+- Method: POST
+- Content-Type: `application/json`
+- Body:
 
-Set `YOUR_REVALIDATION_SECRET` to match `REVALIDATION_SECRET` in your Vercel env vars.
+```json
+{
+  "secret": "YOUR_REVALIDATION_SECRET",
+  "postType": "freelancer",
+  "slug": "{post_name}"
+}
+```
 
 ---
 
 ## 5. Vercel Environment Variables
 
-Add these in **Vercel > Project > Settings > Environment Variables**:
+In **Vercel > Project > Settings > Environment Variables**:
 
 ```
 NEXT_PUBLIC_WORDPRESS_URL        = https://cms.417freelancers.com
 WORDPRESS_GRAPHQL_ENDPOINT       = https://cms.417freelancers.com/graphql
 NEXT_PUBLIC_SITE_URL             = https://417freelancers.com
 NEXT_PUBLIC_SITE_NAME            = 417 Freelancers
-REVALIDATION_SECRET              = (generate a random secret)
+REVALIDATION_SECRET              = (random string, match what you put in the WP webhook)
 CONTACT_EMAIL                    = koleman@deliverdigital.net
-RESEND_API_KEY                   = (from resend.com — free tier works)
+SENDGRID_API_KEY                 = (from sendgrid.com, Settings > API Keys)
 ```
 
 ---
 
 ## 6. WordPress Permalink Settings
 
-Go to **Settings > Permalinks** and set to **Post name** (`/%postname%/`). Save.
+Go to **Settings > Permalinks**, select **Post name** (`/%postname%/`), and save.
 
 ---
 
-## 7. DNS / Hosting
+## 7. DNS
 
-- Point `cms.417freelancers.com` to your WordPress host (A or CNAME record).
-- Point `417freelancers.com` to Vercel (add domain in Vercel project settings).
-- Enable SSL on both domains.
+- `cms.417freelancers.com`: point to your WordPress host (A or CNAME record)
+- `417freelancers.com`: add as a custom domain in Vercel project settings
+- Enable SSL on both
 
 ---
 
-## Testing the GraphQL Connection
+## Adding and editing freelancers
 
-Once the plugin is installed, test at:
-```
-https://cms.417freelancers.com/graphql
-```
+1. Go to **WordPress Admin > Freelancers > Add New**
+2. Set the **Title** to the freelancer's full name
+3. Fill in the **Freelancer Details** ACF fields
+4. Set a **Featured Image** (used as profile photo fallback)
+5. Assign a **Category** (Web Development, Design, Marketing, etc.)
+6. Publish
 
-Run this query in the GraphQL IDE (WPGraphQL > GraphQL IDE):
+Changes appear within 90 seconds, or instantly if the webhook is configured.
+
+---
+
+## Testing the GraphQL connection
+
+Once WPGraphQL is active, go to **GraphQL > GraphiQL IDE** and run:
+
 ```graphql
 query {
   freelancers(first: 5) {
@@ -146,10 +165,15 @@ query {
       title
       freelancerFields {
         tagline
-        location
-        availability
+        skill1
+        skill2
+        skill3
+        rate
+        portfolioLink
       }
     }
   }
 }
 ```
+
+If you get results back, the connection is working. Add your env vars to Vercel and redeploy.

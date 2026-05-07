@@ -1,18 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import type { FreelancerListItem } from "@/types/freelancer";
-
-const availabilityLabel: Record<string, { label: string; color: string; bg: string }> = {
-  available: { label: "Available", color: "#166534", bg: "#dcfce7" },
-  busy: { label: "Limited", color: "#854d0e", bg: "#fef9c3" },
-  unavailable: { label: "Unavailable", color: "#991b1b", bg: "#fee2e2" },
-};
+import { getSkills } from "@/types/freelancer";
 
 export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem }) {
   const { slug, title, featuredImage, freelancerFields, categories } = freelancer;
   const fields = freelancerFields;
-  const avail = fields?.availability ? availabilityLabel[fields.availability] : null;
+  const skills = getSkills(fields);
 
   return (
     <Link
@@ -34,21 +28,10 @@ export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem 
             {title.charAt(0)}
           </div>
         )}
-        {avail && (
-          <span
-            className="absolute top-3 right-3 text-xs font-medium px-2 py-1 rounded-full"
-            style={{ color: avail.color, backgroundColor: avail.bg }}
-          >
-            {avail.label}
-          </span>
-        )}
       </div>
 
       <div className="p-5 flex flex-col flex-1">
-        <h3
-          className="font-semibold text-lg leading-snug transition-colors"
-          style={{ color: "#2C2420" }}
-        >
+        <h3 className="font-semibold text-lg leading-snug" style={{ color: "#2C2420" }}>
           {title}
         </h3>
 
@@ -56,16 +39,9 @@ export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem 
           <p className="mt-1 text-sm line-clamp-2" style={{ color: "#6B5E55" }}>{fields.tagline}</p>
         )}
 
-        {fields?.location && (
-          <p className="mt-2 text-xs flex items-center gap-1" style={{ color: "#6B5E55" }}>
-            <MapPin size={12} strokeWidth={1.5} style={{ color: "#C47A3A" }} />
-            {fields.location}
-          </p>
-        )}
-
-        {fields?.skills && fields.skills.length > 0 && (
+        {skills.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
-            {fields.skills.slice(0, 4).map((skill) => (
+            {skills.map((skill) => (
               <span
                 key={skill}
                 className="text-xs px-2 py-0.5 rounded-full"
