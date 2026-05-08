@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Wrench, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const nav = [
   { label: "Directory", href: "/directory" },
@@ -17,10 +18,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur border-b shadow-sm" style={{ backgroundColor: "rgba(245,239,230,0.97)", borderColor: "#E8C99A" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl" style={{ color: "#7C4A1E" }}>
-            <Wrench size={22} strokeWidth={2} />
-            <span>417 Freelancers</span>
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="417 Freelancers" width={0} height={0} sizes="100vw" className="h-20 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -38,8 +38,17 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/directory"
+              href="/apply"
               className="ml-4 px-4 py-2 text-sm font-medium rounded-md transition-colors"
+              style={{ backgroundColor: "#C47A3A", color: "#fff" }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#B06E34")}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#C47A3A")}
+            >
+              Join the Directory
+            </Link>
+            <Link
+              href="/directory"
+              className="ml-2 px-4 py-2 text-sm font-medium rounded-md transition-colors"
               style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#70431B")}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#7C4A1E")}

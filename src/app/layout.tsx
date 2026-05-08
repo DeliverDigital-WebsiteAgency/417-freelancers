@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LocalBusinessSchema } from "@/components/SchemaOrg";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
 
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: "417 Freelancers | Springfield, MO Freelancer Directory",
     description:
       "Find skilled local freelancers in Springfield, MO and the 417 area.",
-    images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630 }],
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
     description:
       "Find skilled local freelancers in Springfield, MO and the 417 area.",
   },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   alternates: { canonical: siteUrl },
   robots: {
     index: true,
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} h-full antialiased`}>
       <head>
         <LocalBusinessSchema />
       </head>

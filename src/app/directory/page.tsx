@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SearchX } from "lucide-react";
 import { getFreelancers } from "@/lib/api";
-import { FreelancerCard } from "@/components/FreelancerCard";
+import { FreelancerList } from "@/components/FreelancerList";
 import { BreadcrumbSchema } from "@/components/SchemaOrg";
 
 export const revalidate = 90;
@@ -40,11 +40,13 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
 
   let freelancers: Awaited<ReturnType<typeof getFreelancers>>["freelancers"] = [];
   let hasNextPage = false;
+  let endCursor: string | null = null;
 
   try {
     const result = await getFreelancers({ first: 24, category });
     freelancers = result.freelancers;
     hasNextPage = result.hasNextPage;
+    endCursor = result.endCursor;
   } catch {
     // WordPress not configured yet
   }
@@ -98,18 +100,12 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
 
         {/* Grid */}
         {freelancers.length > 0 ? (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {freelancers.map((f) => (
-                <FreelancerCard key={f.id} freelancer={f} />
-              ))}
-            </div>
-            {hasNextPage && (
-              <div className="mt-12 text-center">
-                <p className="text-sm" style={{ color: "#6B5E55" }}>More freelancers available. Pagination coming soon.</p>
-              </div>
-            )}
-          </>
+          <FreelancerList
+            initial={freelancers}
+            initialHasNextPage={hasNextPage}
+            initialCursor={endCursor}
+            category={category}
+          />
         ) : (
           <div className="text-center py-20">
             <SearchX size={48} className="mx-auto mb-4" style={{ color: "#E8C99A" }} strokeWidth={1.5} />

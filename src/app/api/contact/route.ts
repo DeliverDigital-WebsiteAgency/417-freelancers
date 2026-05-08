@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
   const sendgridKey = process.env.SENDGRID_API_KEY;
   const toEmail = process.env.CONTACT_EMAIL;
   if (sendgridKey && toEmail) {
+    console.log("[Contact] Sending via SendGrid to", toEmail);
     const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
       method: "POST",
       headers: {
@@ -71,17 +72,18 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      console.error("SendGrid failed", await res.text());
-      return NextResponse.json({ error: "Failed to send email" }, { status: 502 });
+      const errText = await res.text();
+      console.error("[Contact] SendGrid failed:", res.status, errText);
+      return NextResponse.json({ error: `SendGrid error ${res.status}` }, { status: 502 });
     }
     return NextResponse.json({ ok: true });
   }
 
-  // Fallback: log in development, succeed silently
   if (process.env.NODE_ENV === "development") {
     console.log("[Contact Form]", { name, email, subject, message, freelancerSlug });
     return NextResponse.json({ ok: true });
   }
 
+  console.error("[Contact] No provider: SENDGRID_API_KEY set?", !!sendgridKey, "CONTACT_EMAIL set?", !!toEmail);
   return NextResponse.json({ error: "No email provider configured" }, { status: 503 });
 }

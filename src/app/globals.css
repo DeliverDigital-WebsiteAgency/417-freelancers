@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
   --color-brand: #7C4A1E;
   --color-brand-dark: #70431B;
   --color-accent: #C47A3A;

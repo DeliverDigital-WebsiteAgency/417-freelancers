@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Invoke-WebRequest -Uri \"https://cms.417freelancers.com/wp-content/uploads/2026/05/favicon-icon.png\" -OutFile \"public\\\\favicon.png\"; Write-Host \"favicon.png done: $?\")"
+    ]
+  }
+}
