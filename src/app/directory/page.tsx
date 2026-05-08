@@ -47,8 +47,8 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
     freelancers = result.freelancers;
     hasNextPage = result.hasNextPage;
     endCursor = result.endCursor;
-  } catch {
-    // WordPress not configured yet
+  } catch (err) {
+    console.error("[Directory] Failed to fetch freelancers:", err);
   }
 
   const activeCategory = categoryOptions.find((c) => c.value === (category ?? ""));

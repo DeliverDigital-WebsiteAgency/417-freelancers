@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
 
 const inputClass = "w-full px-3 py-2 rounded-md border text-sm focus:outline-none focus:ring-2 focus:ring-[#C47A3A]";
 const inputStyle = { borderColor: "#E8C99A", backgroundColor: "#fff", color: "#2C2420" };
@@ -63,6 +62,12 @@ export default function ApplyPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
+        if (res.status === 422 && Array.isArray(data.issues)) {
+          const fields = data.issues.map((i: { path: string[]; message: string }) =>
+            `${i.path[0]}: ${i.message}`
+          ).join(", ");
+          throw new Error(`Please fix the following: ${fields}`);
+        }
         throw new Error(data.error ?? "Submission failed");
       }
 
