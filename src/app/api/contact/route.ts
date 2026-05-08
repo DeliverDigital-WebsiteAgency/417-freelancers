@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         from: { email: "noreply@417freelancers.com", name: "417 Freelancers" },
         reply_to: { email, name },
-        to: [{ email: toEmail }],
+        personalizations: [{ to: [{ email: toEmail }] }],
         subject: `[Contact] ${subject}`,
         content: [
           {
