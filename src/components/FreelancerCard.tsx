@@ -8,6 +8,8 @@ export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem 
   const fields = freelancerFields;
   const skills = getSkills(fields);
 
+  const imageNode = featuredImage?.node ?? fields?.profile_image?.node ?? null;
+
   return (
     <Link
       href={`/directory/${slug}`}
@@ -15,10 +17,10 @@ export function FreelancerCard({ freelancer }: { freelancer: FreelancerListItem 
       style={{ border: "1px solid #E8C99A" }}
     >
       <div className="relative h-48" style={{ background: "linear-gradient(to bottom right, #F5EFE6, #E8C99A)" }}>
-        {featuredImage?.node ? (
+        {imageNode ? (
           <Image
-            src={featuredImage.node.sourceUrl}
-            alt={featuredImage.node.altText || title}
+            src={imageNode.sourceUrl}
+            alt={imageNode.altText || title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

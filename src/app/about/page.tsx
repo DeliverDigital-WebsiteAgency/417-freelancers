@@ -35,8 +35,7 @@ export default function AboutPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4" style={{ color: "#2C2420" }}>About 417 Freelancers</h1>
         <p className="text-xl max-w-2xl mx-auto" style={{ color: "#6B5E55" }}>
-          Connecting Springfield businesses with talented local independent professionals
-          since 2024.
+          Connecting Springfield businesses with talented local independent professionals.
         </p>
       </div>
 

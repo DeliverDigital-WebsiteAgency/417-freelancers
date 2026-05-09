@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const nav = [
-  { label: "Directory", href: "/directory" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -38,22 +37,13 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/apply"
+              href="/directory"
               className="ml-4 px-4 py-2 text-sm font-medium rounded-md transition-colors"
               style={{ backgroundColor: "#C47A3A", color: "#fff" }}
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#B06E34")}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#C47A3A")}
             >
-              Join the Directory
-            </Link>
-            <Link
-              href="/directory"
-              className="ml-2 px-4 py-2 text-sm font-medium rounded-md transition-colors"
-              style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#70431B")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#7C4A1E")}
-            >
-              Find a Freelancer
+              Freelancer Directory
             </Link>
           </nav>
 
@@ -84,20 +74,12 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/apply"
+            href="/directory"
             className="block w-full text-center px-4 py-2 text-sm font-medium rounded-md"
             style={{ backgroundColor: "#C47A3A", color: "#fff" }}
             onClick={() => setOpen(false)}
           >
-            Join the Directory
-          </Link>
-          <Link
-            href="/directory"
-            className="block w-full text-center px-4 py-2 text-sm font-medium rounded-md"
-            style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
-            onClick={() => setOpen(false)}
-          >
-            Find a Freelancer
+            Freelancer Directory
           </Link>
         </div>
       )}

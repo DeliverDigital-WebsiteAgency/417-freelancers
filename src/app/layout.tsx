@@ -17,22 +17,22 @@ export const metadata: Metadata = {
     template: "%s | 417 Freelancers",
   },
   description:
-    "Find skilled local freelancers in Springfield, MO and the 417 area. Browse web developers, designers, marketers, copywriters, and more.",
+    "Find locally vetted freelancers in Springfield, MO and Southwest Missouri. Browse the 417's trusted directory of designers, developers, marketers, and more.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "417 Freelancers",
-    title: "417 Freelancers | Springfield, MO Freelancer Directory",
+    title: "417 Freelancers | Southwest Missouri's Freelancer Directory",
     description:
-      "Find skilled local freelancers in Springfield, MO and the 417 area.",
+      "Find locally vetted freelancers in Southwest Missouri. Browse the 417's trusted directory of designers, developers, marketers, and more.",
     images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "417 Freelancers | Springfield, MO Freelancer Directory",
+    title: "417 Freelancers | Southwest Missouri's Freelancer Directory",
     description:
-      "Find skilled local freelancers in Springfield, MO and the 417 area.",
+      "Find locally vetted freelancers in Southwest Missouri. Browse the 417's trusted directory of designers, developers, marketers, and more.",
   },
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   alternates: { canonical: siteUrl },
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQP3WZ2');` }} />
         <LocalBusinessSchema />
       </head>
-      <body className="min-h-full flex flex-col font-sans" style={{ backgroundColor: "#F5EFE6", color: "#6B5E55" }}>
+      <body className="min-h-full flex flex-col font-sans" style={{ backgroundColor: "#F5EFE6", color: "#6B5E55" }} suppressHydrationWarning>
         <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQP3WZ2" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} />
         <Header />
         <main className="flex-1">{children}</main>

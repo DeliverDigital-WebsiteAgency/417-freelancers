@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MapPin, Mail, Phone, Globe, ExternalLink, ArrowUpRight } from "lucide-react";
+import { MapPin, Globe, ArrowUpRight } from "lucide-react";
 import { getFreelancer, getAllFreelancerSlugs } from "@/lib/api";
 import { getSkills } from "@/types/freelancer";
 import { ContactForm } from "@/components/ContactForm";
 import { FreelancerSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
+import { FreelancerContactLinks } from "@/components/FreelancerContactLinks";
 
 export const revalidate = 90;
 
@@ -135,28 +136,12 @@ export default async function FreelancerProfilePage({ params }: PageProps) {
             {/* Details */}
             {(fields?.email || fields?.phone || fields?.website) && (
               <div className="bg-white rounded-2xl shadow-sm p-6 space-y-4" style={{ border: "1px solid #E8C99A" }}>
-                {fields.email && (
-                  <div className="flex items-start gap-3">
-                    <Mail size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Email</p>
-                      <a href={`mailto:${fields.email}`} className="text-sm link-amber hover:underline break-all">
-                        {fields.email}
-                      </a>
-                    </div>
-                  </div>
-                )}
-                {fields.phone && (
-                  <div className="flex items-start gap-3">
-                    <Phone size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "#6B5E55" }}>Phone</p>
-                      <a href={`tel:${fields.phone}`} className="text-sm link-amber hover:underline">
-                        {fields.phone}
-                      </a>
-                    </div>
-                  </div>
-                )}
+                <FreelancerContactLinks
+                  email={fields.email}
+                  phone={fields.phone}
+                  freelancerName={freelancer.title}
+                  slug={slug}
+                />
                 {fields.website && (
                   <div className="flex items-start gap-3">
                     <Globe size={16} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />

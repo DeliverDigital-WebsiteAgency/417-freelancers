@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
@@ -41,22 +42,23 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin size={18} strokeWidth={1.5} style={{ color: "#C47A3A", marginTop: 2, flexShrink: 0 }} />
-                <div>
-                  <p className="font-medium" style={{ color: "#2C2420" }}>Location</p>
-                  <p>Springfield, MO 65801</p>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="rounded-xl p-5" style={{ backgroundColor: "#E8C99A" }}>
-            <h3 className="font-semibold mb-2 text-sm" style={{ color: "#2C2420" }}>Applying to join?</h3>
-            <p className="text-xs leading-relaxed" style={{ color: "#6B5E55" }}>
-              Include your name, specialty, website or portfolio link, and a brief description
-              of the services you offer. We review applications within 3 to 5 business days.
+            <h3 className="font-semibold mb-2 text-sm" style={{ color: "#2C2420" }}>Want to join the directory?</h3>
+            <p className="text-xs leading-relaxed mb-4" style={{ color: "#6B5E55" }}>
+              If you're a freelancer looking to get listed, head to our apply page. We review
+              applications within 3 to 5 business days.
             </p>
+            <Link
+              href="/apply"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-md"
+              style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
+            >
+              Apply to Join
+              <ArrowRight size={13} strokeWidth={2} />
+            </Link>
           </div>
         </aside>
 

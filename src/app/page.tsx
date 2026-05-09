@@ -16,17 +16,17 @@ const categories = [
 const steps = [
   {
     title: "Browse the directory",
-    body: "Filter by skill, category, or availability to find the right fit for your project.",
+    body: "Filter by skill or category to find who you need.",
     Icon: Search,
   },
   {
-    title: "View profiles",
-    body: "Explore portfolios, read bios, and check availability before reaching out.",
+    title: "Review profiles",
+    body: "Check portfolios and bios to make sure they're the right fit.",
     Icon: User,
   },
   {
-    title: "Get in touch",
-    body: "Contact freelancers directly through their profile page with a quick message.",
+    title: "Reach out",
+    body: "Message them directly from their profile.",
     Icon: Mail,
   },
 ];
@@ -38,14 +38,13 @@ export default function HomePage() {
       <section style={{ background: "linear-gradient(to bottom right, #7C4A1E, #2C2420)", color: "white" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <p className="font-medium mb-4 uppercase tracking-widest text-sm" style={{ color: "#E8C99A" }}>
-            Springfield, MO - 417 Area
+            417: Southwest Missouri
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto text-white">
-            Hire talented local freelancers
+            Locally vetted, high-quality freelancers.
           </h1>
           <p className="mt-6 text-xl max-w-2xl mx-auto" style={{ color: "#E8C99A" }}>
-            Connect with skilled professionals right here in the 417 area. From web development
-            to design, marketing, and more.
+            Connect with skilled professionals across Southwest Missouri. Every freelancer in our directory is hand-reviewed, so you can hire with confidence, skip the guesswork, and get to work faster.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -88,6 +87,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Keep it local */}
+      <section className="py-20" style={{ backgroundColor: "#F5EFE6" }}>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#2C2420" }}>Keep it local. Keep it real.</h2>
+          <p className="text-base leading-relaxed" style={{ color: "#6B5E55" }}>
+            When you hire local, you&apos;re not just getting a freelancer, you&apos;re investing in your community. Local professionals understand the market, show up when it counts, and have a reputation worth protecting. In Southwest Missouri, we look out for each other. This directory exists to make those connections easier.
+          </p>
+        </div>
+      </section>
+
       {/* How it works */}
       <section id="how-it-works" className="py-20" style={{ backgroundColor: "#F5EFE6" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,9 +118,9 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-20 text-white text-center" style={{ backgroundColor: "#7C4A1E" }}>
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Are you a 417 freelancer?</h2>
+          <h2 className="text-3xl font-bold mb-4">Are you a local freelancer?</h2>
           <p className="mb-8" style={{ color: "#E8C99A" }}>
-            Get listed in the directory and connect with local clients looking for your skills.
+            Get listed and start connecting with clients in the 417.
           </p>
           <Link
             href="/apply"

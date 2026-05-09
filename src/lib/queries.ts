@@ -19,6 +19,12 @@ const FREELANCER_CARD_FIELDS = /* GraphQL */ `
         skill1
         skill2
         skill3
+        profile_image {
+          node {
+            sourceUrl
+            altText
+          }
+        }
       }
     }
   }

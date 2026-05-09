@@ -57,6 +57,25 @@ body {
 .link-sand { color: #6B5E55; transition: color 0.15s ease; }
 .link-sand:hover { color: #E8C99A; }
 
+.link-footer {
+  position: relative;
+  color: #E8C99A;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.link-footer::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #F5EFE6;
+  transition: width 0.25s ease;
+}
+.link-footer:hover { color: #F5EFE6; }
+.link-footer:hover::after { width: 100%; }
+
 .nav-link { color: #6B5E55; transition: color 0.15s ease; }
 .nav-link:hover { color: #C47A3A; }
 

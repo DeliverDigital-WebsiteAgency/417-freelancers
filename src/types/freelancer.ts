@@ -42,7 +42,7 @@ export interface FreelancerListItem {
   featuredImage?: {
     node: { sourceUrl: string; altText: string };
   } | null;
-  freelancerFields?: Pick<FreelancerFields, "tagline" | "skill1" | "skill2" | "skill3"> | null;
+  freelancerFields?: Pick<FreelancerFields, "tagline" | "skill1" | "skill2" | "skill3" | "profile_image"> | null;
   categories?: {
     nodes: { name: string; slug: string }[];
   } | null;
