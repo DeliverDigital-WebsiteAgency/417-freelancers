@@ -20,7 +20,6 @@ interface FormState {
   skill3: string;
   website: string;
   portfolioLink: string;
-  headshotUrl: string;
   rate: string;
   linkedin: string;
   github: string;
@@ -32,7 +31,7 @@ const empty: FormState = {
   name: "", email: "", phone: "", location: "",
   tagline: "", bio: "",
   skill1: "", skill2: "", skill3: "",
-  website: "", portfolioLink: "", headshotUrl: "",
+  website: "", portfolioLink: "",
   rate: "",
   linkedin: "", github: "", twitter: "",
   howDidYouHear: "",
@@ -62,12 +61,6 @@ export default function ApplyPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        if (res.status === 422 && Array.isArray(data.issues)) {
-          const fields = data.issues.map((i: { path: string[]; message: string }) =>
-            `${i.path[0]}: ${i.message}`
-          ).join(", ");
-          throw new Error(`Please fix the following: ${fields}`);
-        }
         throw new Error(data.error ?? "Submission failed");
       }
 
@@ -90,10 +83,7 @@ export default function ApplyPage() {
           Thanks for applying to the 417 Freelancers directory. We review every application
           manually and will reach out to you at <strong style={{ color: "#2C2420" }}>{form.email || "your email"}</strong> within a few business days.
         </p>
-        <a
-          href="/directory"
-          className="inline-block mt-8 px-6 py-3 text-sm font-medium rounded-md btn-primary"
-        >
+        <a href="/directory" className="inline-block mt-8 px-6 py-3 text-sm font-medium rounded-md btn-primary">
           Browse the Directory
         </a>
       </div>
@@ -105,8 +95,7 @@ export default function ApplyPage() {
       <div className="mb-10">
         <h1 className="text-3xl font-bold" style={{ color: "#2C2420" }}>Join the Directory</h1>
         <p className="mt-2 text-base" style={{ color: "#6B5E55" }}>
-          Apply to be listed on 417 Freelancers. Fill out everything you can and we will
-          reach out to finalize your profile.
+          Fill out as much or as little as you have handy. We will reach out to finalize your profile before it goes live.
         </p>
       </div>
 
@@ -119,15 +108,11 @@ export default function ApplyPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Full Name <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
+              <label className={labelClass} style={labelStyle}>Full Name</label>
               <input required value={form.name} onChange={set("name")} className={inputClass} style={inputStyle} placeholder="Jane Smith" />
             </div>
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Email Address <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
+              <label className={labelClass} style={labelStyle}>Email Address</label>
               <input required type="email" value={form.email} onChange={set("email")} className={inputClass} style={inputStyle} placeholder="jane@example.com" />
             </div>
             <div>
@@ -135,10 +120,8 @@ export default function ApplyPage() {
               <input type="tel" value={form.phone} onChange={set("phone")} className={inputClass} style={inputStyle} placeholder="(417) 555-0100" />
             </div>
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Location <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
-              <input required value={form.location} onChange={set("location")} className={inputClass} style={inputStyle} placeholder="Springfield, MO" />
+              <label className={labelClass} style={labelStyle}>Location</label>
+              <input value={form.location} onChange={set("location")} className={inputClass} style={inputStyle} placeholder="Springfield, MO" />
             </div>
           </div>
         </section>
@@ -150,11 +133,8 @@ export default function ApplyPage() {
           </h2>
           <div className="space-y-5">
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Tagline <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
+              <label className={labelClass} style={labelStyle}>Tagline</label>
               <input
-                required
                 value={form.tagline}
                 onChange={set("tagline")}
                 className={inputClass}
@@ -165,11 +145,8 @@ export default function ApplyPage() {
               <p className="mt-1 text-xs" style={hintStyle}>One sentence. Shows under your name in the directory.</p>
             </div>
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Bio <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
+              <label className={labelClass} style={labelStyle}>Bio</label>
               <textarea
-                required
                 value={form.bio}
                 onChange={set("bio")}
                 rows={6}
@@ -177,20 +154,6 @@ export default function ApplyPage() {
                 style={inputStyle}
                 placeholder="Tell potential clients about your background, what you do, and what makes you great to work with..."
               />
-            </div>
-            <div>
-              <label className={labelClass} style={labelStyle}>Headshot URL</label>
-              <input
-                type="url"
-                value={form.headshotUrl}
-                onChange={set("headshotUrl")}
-                className={inputClass}
-                style={inputStyle}
-                placeholder="https://..."
-              />
-              <p className="mt-1 text-xs" style={hintStyle}>
-                Link to a professional headshot (LinkedIn photo, Google Drive, Dropbox, etc.). At least 400x400px.
-              </p>
             </div>
           </div>
         </section>
@@ -200,13 +163,11 @@ export default function ApplyPage() {
           <h2 className="text-lg font-semibold mb-5 pb-2 border-b" style={{ color: "#2C2420", borderColor: "#E8C99A" }}>
             Skills
           </h2>
-          <p className="text-sm mb-4" style={hintStyle}>List your top three skills. These appear as tags on your profile.</p>
+          <p className="text-sm mb-4" style={hintStyle}>List up to three skills. These appear as tags on your profile.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div>
-              <label className={labelClass} style={labelStyle}>
-                Skill 1 <span style={{ color: "#C47A3A" }}>*</span>
-              </label>
-              <input required value={form.skill1} onChange={set("skill1")} className={inputClass} style={inputStyle} placeholder="e.g. React" />
+              <label className={labelClass} style={labelStyle}>Skill 1</label>
+              <input value={form.skill1} onChange={set("skill1")} className={inputClass} style={inputStyle} placeholder="e.g. React" />
             </div>
             <div>
               <label className={labelClass} style={labelStyle}>Skill 2</label>
@@ -296,7 +257,7 @@ export default function ApplyPage() {
             {status === "submitting" ? "Submitting..." : "Submit Application"}
           </button>
           <p className="mt-3 text-xs" style={hintStyle}>
-            We review every application manually and respond within a few business days.
+            We review every application and will reach out to you within a few business days.
           </p>
         </div>
       </form>
