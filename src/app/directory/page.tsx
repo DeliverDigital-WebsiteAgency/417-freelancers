@@ -48,7 +48,7 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
     hasNextPage = result.hasNextPage;
     endCursor = result.endCursor;
   } catch (err) {
-    console.error("[Directory] Failed to fetch freelancers:", err);
+    console.error("[Directory] Failed to fetch freelancers:", JSON.stringify(err, null, 2));
   }
 
   const activeCategory = categoryOptions.find((c) => c.value === (category ?? ""));

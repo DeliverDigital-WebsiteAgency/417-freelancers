@@ -3,10 +3,6 @@ import {
   Monitor, Palette, TrendingUp, PenLine, Camera, Film,
   Search, User, Mail,
 } from "lucide-react";
-import { getFreelancers } from "@/lib/api";
-import { FreelancerCard } from "@/components/FreelancerCard";
-
-export const revalidate = 90;
 
 const categories = [
   { label: "Web Development", slug: "web-development", Icon: Monitor },
@@ -35,16 +31,7 @@ const steps = [
   },
 ];
 
-export default async function HomePage() {
-  let featuredFreelancers: Awaited<ReturnType<typeof getFreelancers>>["freelancers"] = [];
-
-  try {
-    const result = await getFreelancers({ first: 6 });
-    featuredFreelancers = result.freelancers;
-  } catch {
-    // WordPress may not be configured yet during development
-  }
-
+export default function HomePage() {
   return (
     <>
       {/* Hero */}
@@ -68,7 +55,7 @@ export default async function HomePage() {
               Browse Freelancers
             </Link>
             <Link
-              href="/contact"
+              href="/apply"
               className="px-8 py-3.5 font-semibold rounded-md btn-accent"
             >
               List Your Services
@@ -101,25 +88,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured freelancers */}
-      {featuredFreelancers.length > 0 && (
-        <section className="py-16" style={{ backgroundColor: "#F5EFE6" }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold" style={{ color: "#2C2420" }}>Featured freelancers</h2>
-              <Link href="/directory" className="text-sm font-medium link-amber">
-                View all
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredFreelancers.map((f) => (
-                <FreelancerCard key={f.id} freelancer={f} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* How it works */}
       <section id="how-it-works" className="py-20" style={{ backgroundColor: "#F5EFE6" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,7 +114,7 @@ export default async function HomePage() {
             Get listed in the directory and connect with local clients looking for your skills.
           </p>
           <Link
-            href="/contact"
+            href="/apply"
             className="inline-block px-8 py-3.5 font-semibold rounded-md btn-accent"
           >
             Apply to Join

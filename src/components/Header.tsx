@@ -84,8 +84,16 @@ export function Header() {
             </Link>
           ))}
           <Link
+            href="/apply"
+            className="block w-full text-center px-4 py-2 text-sm font-medium rounded-md"
+            style={{ backgroundColor: "#C47A3A", color: "#fff" }}
+            onClick={() => setOpen(false)}
+          >
+            Join the Directory
+          </Link>
+          <Link
             href="/directory"
-            className="block w-full text-center px-4 py-2 text-sm font-medium rounded-md transition-colors"
+            className="block w-full text-center px-4 py-2 text-sm font-medium rounded-md"
             style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
             onClick={() => setOpen(false)}
           >

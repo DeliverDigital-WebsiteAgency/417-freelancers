@@ -28,7 +28,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <Link href="/" className="flex items-center">
-              <Image src="/og-image.jpg" alt="417 Freelancers" width={0} height={0} sizes="100vw" className="h-20 w-auto" />
+              <Image src="/logo.png" alt="417 Freelancers" width={0} height={0} sizes="100vw" className="h-24 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
             </Link>
             <p className="mt-3 text-sm leading-relaxed">
               Springfield, MO&apos;s premier directory of local freelance talent. Find skilled

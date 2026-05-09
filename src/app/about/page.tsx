@@ -82,7 +82,7 @@ export default function AboutPage() {
           <Link href="/directory" className="px-6 py-3 font-semibold rounded-md btn-outline-hero">
             Browse Freelancers
           </Link>
-          <Link href="/contact" className="px-6 py-3 font-semibold rounded-md btn-accent">
+          <Link href="/apply" className="px-6 py-3 font-semibold rounded-md btn-accent">
             Apply to Join
           </Link>
         </div>

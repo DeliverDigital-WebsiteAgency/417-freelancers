@@ -58,6 +58,18 @@ export interface FreelancersQueryResult {
   };
 }
 
+export interface FreelancersByCategoryResult {
+  freelancerCategory: {
+    freelancers: {
+      nodes: FreelancerListItem[];
+      pageInfo: {
+        hasNextPage: boolean;
+        endCursor: string | null;
+      };
+    };
+  } | null;
+}
+
 export interface FreelancerQueryResult {
   freelancer: Freelancer;
 }

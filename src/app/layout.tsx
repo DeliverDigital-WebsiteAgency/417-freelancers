@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "417 Freelancers | Springfield, MO Freelancer Directory",
     description:
       "Find skilled local freelancers in Springfield, MO and the 417 area.",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

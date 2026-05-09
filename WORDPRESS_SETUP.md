@@ -2,21 +2,20 @@
 
 ## Required Plugins
 
-Install and activate these on your WordPress instance. All are free.
+Install and activate these on your WordPress instance.
 
 | Plugin | Purpose |
 |--------|---------|
 | [WPGraphQL](https://wordpress.org/plugins/wp-graphql/) | GraphQL API layer |
 | [WPGraphQL for ACF](https://wordpress.org/plugins/wpgraphql-acf/) | Expose ACF fields in GraphQL |
-| [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) | Custom freelancer fields (free version) |
-| [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) | `freelancer` custom post type |
+| [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) | Custom post types, taxonomies, and fields |
 | [WP Webhooks](https://wordpress.org/plugins/wp-webhooks/) | Trigger Vercel ISR revalidation on save |
 
 ---
 
 ## 1. Custom Post Type: `freelancer`
 
-In **Custom Post Type UI > Add/Edit Post Types**, create:
+In **ACF > Post Types > Add New**, create:
 
 | Setting | Value |
 |---------|-------|
@@ -31,7 +30,36 @@ In **Custom Post Type UI > Add/Edit Post Types**, create:
 
 ---
 
-## 2. ACF Field Group: Freelancer Details
+## 2. Custom Taxonomy: `freelancer_category`
+
+In **ACF > Taxonomies > Add New**, create:
+
+| Setting | Value |
+|---------|-------|
+| Taxonomy Slug | `freelancer_category` |
+| Plural Label | Freelancer Categories |
+| Singular Label | Freelancer Category |
+| Show in GraphQL | Yes |
+| GraphQL Single Name | `freelancerCategory` |
+| GraphQL Plural Name | `freelancerCategories` |
+| Attach to Post Type | `freelancer` |
+
+Then go to **Freelancer Categories > Add New** and create these terms. The slugs must match exactly:
+
+| Name | Slug |
+|------|------|
+| Web Development | `web-development` |
+| Design | `design` |
+| Marketing | `marketing` |
+| Copywriting | `copywriting` |
+| Photography | `photography` |
+| Video | `video` |
+
+When editing a freelancer, assign one (or more) of these categories. The directory filter buttons on the frontend will then work correctly.
+
+---
+
+## 3. ACF Field Group: Freelancer Details
 
 In **ACF > Field Groups > Add New**, create a group named **Freelancer Details** assigned to post type `freelancer`.
 

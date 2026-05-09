@@ -47,6 +47,23 @@ export const GET_FREELANCERS = /* GraphQL */ `
   }
 `;
 
+export const GET_FREELANCERS_BY_CATEGORY = /* GraphQL */ `
+  ${FREELANCER_CARD_FIELDS}
+  query GetFreelancersByCategory($first: Int = 24, $after: String, $category: ID!) {
+    freelancerCategory(id: $category, idType: SLUG) {
+      freelancers(first: $first, after: $after, where: { status: PUBLISH }) {
+        nodes {
+          ...FreelancerCardFields
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  }
+`;
+
 // ---------------------------------------------------------------------------
 // Single freelancer profile
 // ---------------------------------------------------------------------------
