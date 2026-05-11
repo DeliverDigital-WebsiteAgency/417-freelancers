@@ -6,7 +6,7 @@ import { BreadcrumbSchema } from "@/components/SchemaOrg";
 
 export const revalidate = 90;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://417freelancers.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.com";
 
 const categoryOptions = [
   { label: "All", value: "" },
