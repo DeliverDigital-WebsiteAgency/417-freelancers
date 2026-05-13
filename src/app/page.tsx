@@ -57,7 +57,7 @@ export default function HomePage() {
               href="/apply"
               className="px-8 py-3.5 font-semibold rounded-md btn-accent"
             >
-              List Your Services
+              Join the Directory
             </Link>
           </div>
         </div>

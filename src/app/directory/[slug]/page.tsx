@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description =
     freelancer.seo?.metaDesc ??
     freelancer.freelancerFields?.tagline ??
-    `View ${freelancer.title}'s portfolio and contact information on 417 Freelancers.`;
+    `View ${freelancer.title}'s portfolio and contact information.`;
   const image =
     freelancer.seo?.opengraphImage?.sourceUrl ??
     freelancer.featuredImage?.node.sourceUrl;

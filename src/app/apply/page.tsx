@@ -20,7 +20,6 @@ interface FormState {
   skill3: string;
   website: string;
   portfolioLink: string;
-  rate: string;
   linkedin: string;
   github: string;
   twitter: string;
@@ -32,7 +31,6 @@ const empty: FormState = {
   tagline: "", bio: "",
   skill1: "", skill2: "", skill3: "",
   website: "", portfolioLink: "",
-  rate: "",
   linkedin: "", github: "", twitter: "",
   howDidYouHear: "",
 };
@@ -180,10 +178,10 @@ export default function ApplyPage() {
           </div>
         </section>
 
-        {/* Links & Rate */}
+        {/* Links */}
         <section>
           <h2 className="text-lg font-semibold mb-5 pb-2 border-b" style={{ color: "#2C2420", borderColor: "#E8C99A" }}>
-            Links and Rate
+            Links
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
@@ -193,10 +191,6 @@ export default function ApplyPage() {
             <div>
               <label className={labelClass} style={labelStyle}>Portfolio Link</label>
               <input type="url" value={form.portfolioLink} onChange={set("portfolioLink")} className={inputClass} style={inputStyle} placeholder="https://portfolio.com or Behance, Dribbble, etc." />
-            </div>
-            <div className="sm:col-span-2">
-              <label className={labelClass} style={labelStyle}>Hourly Rate</label>
-              <input value={form.rate} onChange={set("rate")} className={inputClass} style={inputStyle} placeholder="e.g. $75/hr or Project-based" />
             </div>
           </div>
         </section>

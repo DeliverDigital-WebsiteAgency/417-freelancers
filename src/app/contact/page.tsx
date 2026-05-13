@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with 417 Freelancers. Apply to join our Springfield, MO freelancer directory or send us a general inquiry.",
+    "Trusted and Vetted 417 Freelancers. Apply to join our Springfield, MO freelancer directory or send us a message!",
   alternates: { canonical: `${siteUrl}/contact` },
 };
 
@@ -48,8 +48,8 @@ export default function ContactPage() {
           <div className="rounded-xl p-5" style={{ backgroundColor: "#E8C99A" }}>
             <h3 className="font-semibold mb-2 text-sm" style={{ color: "#2C2420" }}>Want to join the directory?</h3>
             <p className="text-xs leading-relaxed mb-4" style={{ color: "#6B5E55" }}>
-              If you're a freelancer looking to get listed, head to our apply page. We review
-              applications within 3 to 5 business days.
+              If you are a freelancer, creative, agency, or side-hustler looking to get listed, head to our apply page. We review
+              applications within 3 business days.
             </p>
             <Link
               href="/apply"
