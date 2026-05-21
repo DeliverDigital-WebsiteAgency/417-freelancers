@@ -71,6 +71,32 @@ export default function AboutPage() {
         ))}
       </div>
 
+      {/* Built by Deliver Digital */}
+      <div className="rounded-2xl p-8 mb-16 flex flex-col sm:flex-row gap-6 items-start" style={{ backgroundColor: "#2C2420" }}>
+        <div className="flex-1">
+          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#C47A3A" }}>Built by</p>
+          <h2 className="text-2xl font-bold mb-3 text-white">Deliver Digital</h2>
+          <p className="text-sm leading-relaxed mb-4" style={{ color: "#E8C99A" }}>
+            417 Freelancers is owned and operated by Deliver Digital, a Springfield-based digital
+            agency that builds websites, web applications, and digital tools for businesses in the
+            417 area and beyond. Deliver Digital created this directory to fill a real gap in the
+            local market and to invest in the Springfield creative community.
+          </p>
+          <p className="text-sm leading-relaxed mb-5" style={{ color: "#E8C99A" }}>
+            If your business needs a website, a custom web application, or a broader digital
+            strategy, Deliver Digital works with clients of all sizes across Southwest Missouri.
+          </p>
+          <a
+            href="https://deliverdigital.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-5 py-2.5 text-sm font-semibold rounded-md btn-accent"
+          >
+            Visit Deliver Digital
+          </a>
+        </div>
+      </div>
+
       {/* CTA */}
       <div className="rounded-2xl text-white text-center p-10" style={{ backgroundColor: "#7C4A1E" }}>
         <h2 className="text-2xl font-bold mb-3">Ready to get started?</h2>

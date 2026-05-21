@@ -9,6 +9,14 @@ const links = {
     { label: "Marketing", href: "/directory?category=marketing" },
     { label: "Copywriting", href: "/directory?category=copywriting" },
   ],
+  Hire: [
+    { label: "Web Developers", href: "/hire/web-developers" },
+    { label: "Graphic Designers", href: "/hire/graphic-designers" },
+    { label: "Photographers", href: "/hire/photographers" },
+    { label: "Videographers", href: "/hire/videographers" },
+    { label: "Copywriters", href: "/hire/copywriters" },
+    { label: "Digital Marketers", href: "/hire/digital-marketers" },
+  ],
   Company: [
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -26,8 +34,8 @@ export function Footer() {
   return (
     <footer className="mt-auto" style={{ backgroundColor: "#2C2420", color: "#E8C99A" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center">
               <Image src="/logo.png" alt="417 Freelancers" width={0} height={0} sizes="100vw" className="h-32 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
             </Link>
