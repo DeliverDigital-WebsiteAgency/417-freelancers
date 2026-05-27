@@ -135,6 +135,101 @@ export const GET_ALL_FREELANCER_SLUGS = /* GraphQL */ `
 `;
 
 // ---------------------------------------------------------------------------
+// Blog posts — listing
+// ---------------------------------------------------------------------------
+
+export const GET_POSTS = /* GraphQL */ `
+  query GetPosts($first: Int = 12, $after: String) {
+    posts(first: $first, after: $after, where: { status: PUBLISH }) {
+      nodes {
+        id
+        slug
+        title
+        date
+        excerpt
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        categories {
+          nodes {
+            name
+            slug
+          }
+        }
+        author {
+          node {
+            name
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
+// Blog posts — single post
+// ---------------------------------------------------------------------------
+
+export const GET_POST = /* GraphQL */ `
+  query GetPost($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
+      id
+      slug
+      title
+      date
+      modified
+      content
+      excerpt
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+      categories {
+        nodes {
+          name
+          slug
+        }
+      }
+      author {
+        node {
+          name
+        }
+      }
+      seo {
+        title
+        metaDesc
+        opengraphImage {
+          sourceUrl
+        }
+      }
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
+// Blog posts — all slugs for static generation
+// ---------------------------------------------------------------------------
+
+export const GET_ALL_POST_SLUGS = /* GraphQL */ `
+  query GetAllPostSlugs {
+    posts(first: 1000, where: { status: PUBLISH }) {
+      nodes {
+        slug
+      }
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
 // Site settings / SEO
 // ---------------------------------------------------------------------------
 

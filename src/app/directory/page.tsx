@@ -19,15 +19,18 @@ const categoryOptions = [
 ];
 
 export const metadata: Metadata = {
-  title: "Freelancer Directory",
+  title: {
+    absolute: "Freelancer Directory | Springfield, MO | 417 Freelancers",
+  },
   description:
-    "Browse all local freelancers in Springfield, MO and the 417 area. Filter by skill or category to find the perfect match.",
+    "Browse vetted local freelancers in Springfield, MO and the 417 area. Filter by category to find designers, developers, marketers, photographers, and more.",
   alternates: { canonical: `${siteUrl}/directory` },
   openGraph: {
-    title: "Freelancer Directory | 417 Freelancers",
+    title: "Freelancer Directory | Springfield, MO | 417 Freelancers",
     description:
-      "Browse all local freelancers in Springfield, MO and the 417 area.",
+      "Browse vetted local freelancers in Springfield, MO and the 417 area. Filter by category to find the right fit.",
     url: `${siteUrl}/directory`,
+    images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630 }],
   },
 };
 

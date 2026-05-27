@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, ShieldCheck, Users } from "lucide-react";
+import { BreadcrumbSchema } from "@/components/SchemaOrg";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.com";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: {
+    absolute: "About 417 Freelancers | Springfield, MO Freelancer Directory",
+  },
   description:
-    "Learn about 417 Freelancers, Springfield, MO's premier local freelancer directory connecting businesses with skilled independent professionals.",
+    "Learn how 417 Freelancers connects Springfield, MO businesses with vetted local freelancers. Browse designers, developers, marketers, and more in the 417 area.",
   alternates: { canonical: `${siteUrl}/about` },
+  openGraph: {
+    title: "About 417 Freelancers | Springfield, MO Freelancer Directory",
+    description:
+      "Learn how 417 Freelancers connects Springfield, MO businesses with vetted local freelancers in the 417 area.",
+    url: `${siteUrl}/about`,
+  },
 };
 
 const values = [
@@ -31,7 +40,14 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: siteUrl },
+          { name: "About", url: `${siteUrl}/about` },
+        ]}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4" style={{ color: "#2C2420" }}>About 417 Freelancers</h1>
         <p className="text-xl max-w-2xl mx-auto" style={{ color: "#6B5E55" }}>
@@ -112,6 +128,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

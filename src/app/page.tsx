@@ -41,7 +41,7 @@ export default function HomePage() {
             417: Southwest Missouri
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto text-white">
-            Locally vetted, high-quality freelancers.
+            Springfield&apos;s locally vetted freelancers.
           </h1>
           <p className="mt-6 text-xl max-w-2xl mx-auto" style={{ color: "#E8C99A" }}>
             Connect with skilled professionals across Southwest Missouri. Every freelancer in our directory is hand-reviewed, so you can hire with confidence, skip the guesswork, and get to work faster.

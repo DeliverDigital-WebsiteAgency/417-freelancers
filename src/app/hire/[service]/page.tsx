@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { servicePages, getServicePage } from "@/lib/service-pages";
+import { FAQPageSchema } from "@/components/SchemaOrg";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.com";
 
@@ -41,7 +42,9 @@ export default async function ServicePage({
   if (!page) notFound();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <>
+      <FAQPageSchema faqs={page.faqs} />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
       {/* Hero */}
       <div className="mb-12">
@@ -153,6 +156,7 @@ export default async function ServicePage({
           {page.directoryLabel}
         </Link>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

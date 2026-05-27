@@ -4,6 +4,9 @@ import {
   GET_FREELANCERS_BY_CATEGORY,
   GET_FREELANCER,
   GET_ALL_FREELANCER_SLUGS,
+  GET_POSTS,
+  GET_POST,
+  GET_ALL_POST_SLUGS,
 } from "./queries";
 import type {
   FreelancersQueryResult,
@@ -13,6 +16,13 @@ import type {
   FreelancerListItem,
   Freelancer,
 } from "@/types/freelancer";
+import type {
+  PostsQueryResult,
+  PostQueryResult,
+  AllPostSlugsResult,
+  PostListItem,
+  Post,
+} from "@/types/post";
 
 export async function getFreelancers(opts?: {
   first?: number;
@@ -55,4 +65,41 @@ export async function getFreelancer(slug: string): Promise<Freelancer | null> {
 export async function getAllFreelancerSlugs(): Promise<string[]> {
   const data = await fetchGraphQL<AllFreelancerSlugsResult>(GET_ALL_FREELANCER_SLUGS);
   return data.freelancers.nodes.map((n) => n.slug);
+}
+
+// ---------------------------------------------------------------------------
+// Blog posts
+// ---------------------------------------------------------------------------
+
+export async function getPosts(opts?: {
+  first?: number;
+  after?: string;
+}): Promise<{ posts: PostListItem[]; hasNextPage: boolean; endCursor: string | null }> {
+  const data = await fetchGraphQL<PostsQueryResult>(GET_POSTS, {
+    first: opts?.first ?? 12,
+    after: opts?.after ?? null,
+  });
+  return {
+    posts: data.posts.nodes,
+    hasNextPage: data.posts.pageInfo.hasNextPage,
+    endCursor: data.posts.pageInfo.endCursor,
+  };
+}
+
+export async function getPost(slug: string): Promise<Post | null> {
+  try {
+    const data = await fetchGraphQL<PostQueryResult>(GET_POST, { slug });
+    return data.post ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getAllPostSlugs(): Promise<string[]> {
+  try {
+    const data = await fetchGraphQL<AllPostSlugsResult>(GET_ALL_POST_SLUGS);
+    return data.posts.nodes.map((n) => n.slug);
+  } catch {
+    return [];
+  }
 }

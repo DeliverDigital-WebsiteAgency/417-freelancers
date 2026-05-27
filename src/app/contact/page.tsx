@@ -6,10 +6,18 @@ import { ContactForm } from "@/components/ContactForm";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.com";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: {
+    absolute: "Contact 417 Freelancers | Springfield, MO Freelancer Directory",
+  },
   description:
-    "Trusted and Vetted 417 Freelancers. Apply to join our Springfield, MO freelancer directory or send us a message!",
+    "Have a question about the 417 Freelancers directory? Reach out to the team. We review every message and respond within one business day. Email hello@417freelancers.com.",
   alternates: { canonical: `${siteUrl}/contact` },
+  openGraph: {
+    title: "Contact 417 Freelancers | Springfield, MO Freelancer Directory",
+    description:
+      "Have a question about the 417 Freelancers directory? Contact us and we will get back to you within one business day.",
+    url: `${siteUrl}/contact`,
+  },
 };
 
 export default function ContactPage() {
