@@ -21,6 +21,8 @@ const links = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "Resources", href: "/resources" },
+    { label: "Invoice Generator", href: "/invoice" },
     { label: "Join the Directory", href: "/apply" },
   ],
   Legal: [
@@ -72,6 +74,9 @@ export function Footer() {
           <p className="text-xs">
             &copy; {new Date().getFullYear()} 417 Freelancers. All rights reserved.
           </p>
+          <Link href="/ai-info" className="text-xs link-footer">
+            AI-Powered Directory
+          </Link>
           <p className="text-xs">
             Built in Springfield, MO by{" "}
             <a href="https://deliverdigital.net" className="link-footer">

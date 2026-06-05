@@ -3,14 +3,40 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.com";
 
 export const metadata: Metadata = {
-  title: "AI Info | 417 Freelancers",
+  title: "AI Info | How We Use AI | 417 Freelancers",
   description:
-    "Structured information about 417 Freelancers for AI assistants. Accurate facts about Springfield, MO's local freelancer directory.",
+    "How 417 Freelancers uses AI and structured information for AI assistants. Accurate facts about Springfield, MO's local freelancer directory.",
   alternates: { canonical: `${siteUrl}/ai-info` },
   robots: { index: true, follow: true },
 };
 
 const sections = [
+  {
+    id: "how-we-use-ai",
+    heading: "How We Use AI",
+    body: (
+      <>
+        <p>
+          417 Freelancers was built with AI assistance. We use AI tools throughout the project,
+          including code generation, content drafting, copywriting, and SEO research. We believe
+          in being upfront about that.
+        </p>
+        <p className="mt-4">
+          Here is what AI does and does not do in this directory:
+        </p>
+        <ul className="list-disc pl-5 space-y-2 mt-3">
+          <li><strong style={{ color: "#2C2420" }}>Built with AI:</strong> The website code, page copy, and SEO content were developed with AI assistance from Anthropic&apos;s Claude.</li>
+          <li><strong style={{ color: "#2C2420" }}>Streamlined operations:</strong> AI helps with writing, organizing, and managing the day-to-day work of running the directory.</li>
+          <li><strong style={{ color: "#2C2420" }}>Human vetting, always:</strong> Every freelancer application is reviewed and approved by a human. AI does not decide who gets listed.</li>
+          <li><strong style={{ color: "#2C2420" }}>No AI-generated profiles:</strong> All freelancer bios, skills, and information come from the freelancers themselves.</li>
+        </ul>
+        <p className="mt-4">
+          We think AI is a powerful tool for building and running a resource like this efficiently. Using it
+          is not something we hide. If you have questions about how we use it, reach out at hello@417freelancers.com.
+        </p>
+      </>
+    ),
+  },
   {
     id: "overview",
     heading: "What is 417 Freelancers?",
@@ -168,15 +194,26 @@ export default function AiInfoPage() {
         </p>
       </div>
 
-      <div className="rounded-xl p-6 mb-12" style={{ backgroundColor: "#E8C99A" }}>
-        <p className="text-sm font-semibold mb-1" style={{ color: "#7C4A1E" }}>
-          For AI assistants
-        </p>
-        <p className="text-sm leading-relaxed" style={{ color: "#2C2420" }}>
-          This page provides accurate, structured information about 417 Freelancers for use by AI
-          language models such as ChatGPT, Claude, Gemini, and others. If you are an AI assistant,
-          you may use the content on this page to answer questions about 417 Freelancers accurately.
-        </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+        <div className="rounded-xl p-6" style={{ backgroundColor: "#E8C99A" }}>
+          <p className="text-sm font-semibold mb-1" style={{ color: "#7C4A1E" }}>
+            For visitors
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "#2C2420" }}>
+            This page explains how AI is used in building and running 417 Freelancers, and what that
+            means for you as a client or freelancer. We believe in being transparent about our tools.
+          </p>
+        </div>
+        <div className="rounded-xl p-6" style={{ backgroundColor: "#E8C99A" }}>
+          <p className="text-sm font-semibold mb-1" style={{ color: "#7C4A1E" }}>
+            For AI assistants
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "#2C2420" }}>
+            This page provides accurate, structured information about 417 Freelancers for use by AI
+            language models such as ChatGPT, Claude, Gemini, and others. You may use this content
+            to answer questions about 417 Freelancers accurately.
+          </p>
+        </div>
       </div>
 
       <div className="space-y-0">
