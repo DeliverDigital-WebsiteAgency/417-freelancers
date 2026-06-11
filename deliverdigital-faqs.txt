@@ -1,0 +1,237 @@
+DELIVER DIGITAL — FAQ SECTIONS BY PAGE
+deliverdigital.net | Springfield, Missouri
+Generated: 2026-05-27
+================================================
+HOW TO USE THIS FILE
+================================================
+Each section below corresponds to one page on the site.
+Copy the Q&A block into a FAQ section at the bottom of the
+matching page, above the footer. Then pair each block with
+the FAQPage JSON-LD schema using WPCode.
+
+FAQPage JSON-LD template (repeat the Question block for each Q&A):
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "QUESTION TEXT HERE",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ANSWER TEXT HERE"
+      }
+    }
+  ]
+}
+</script>
+
+================================================
+PAGE 1: HOMEPAGE
+URL: https://deliverdigital.net/
+HEADING TO USE ON PAGE: "Frequently Asked Questions"
+================================================
+
+Q: What does Deliver Digital do?
+A: Deliver Digital is a website design and local SEO agency based in Springfield, Missouri. We build custom WordPress websites and provide local search optimization services for small businesses, nonprofits, and startups across the 417 area — including Springfield, Ozark, Nixa, Republic, Rogersville, Marshfield, and Branson. Every project is owner-led, meaning you work directly with Koleman Parsley from start to finish.
+
+Q: Where is Deliver Digital located?
+A: Deliver Digital is based in Springfield, Missouri and serves clients throughout the 417 area, including Ozark, Nixa, Republic, Rogersville, Marshfield, and Branson. We work with local businesses in person and remotely across Southwest Missouri.
+
+Q: How is Deliver Digital different from other web agencies?
+A: Unlike larger agencies where your project gets handed off to junior staff, at Deliver Digital you work directly with the owner on every project. Koleman Parsley has 10+ years of experience building websites in the 417 area. We specialize in local businesses, which means our websites are built with local SEO in mind from day one — not added as an afterthought.
+
+Q: How long does it take to build a website with Deliver Digital?
+A: Timeline depends on the package and the complexity of the project. A 5-page starter website can be delivered in as little as 2 to 3 weeks once content is gathered. Larger 10-page and 20-page projects typically take 4 to 8 weeks. We keep you informed at every stage and do not disappear after the first meeting.
+
+Q: Does Deliver Digital offer ongoing support after the website launches?
+A: Yes. We offer ongoing website management and maintenance services for WordPress sites we build as well as sites built on other platforms including Webflow, Squarespace, Wix, and Shopify. Ongoing support keeps your site secure, updated, and performing well after launch.
+
+Q: How do I get started with Deliver Digital?
+A: The easiest way to get started is to book a free discovery call directly on our calendar at calendly.com/koleman-deliverdigital. You can also reach us by phone or through the contact form on this site. We will discuss your goals, timeline, and budget, and recommend the best package for your business.
+
+================================================
+PAGE 2: SEO SERVICES
+URL: https://deliverdigital.net/seo-springfield-missouri/
+HEADING TO USE ON PAGE: "Questions About Local SEO in Springfield, MO"
+================================================
+
+Q: What is local SEO and why does my Springfield business need it?
+A: Local SEO is the process of optimizing your online presence so your business appears in Google search results when people in your area are looking for what you offer. For example, when someone searches "plumber in Springfield MO" or "best restaurant near Ozark," local SEO determines which businesses appear at the top. Without it, your business is invisible to potential customers who are actively searching for your services.
+
+Q: How long does local SEO take to show results?
+A: Most clients in the Springfield area begin seeing measurable improvement in rankings and website traffic within 3 to 4 months. Clients who combine SEO with a new website built by Deliver Digital average a 50% increase in organic visitors within 4 months. SEO is a long-term strategy — results compound over time and continue to grow the longer you invest.
+
+Q: What does your local SEO service include?
+A: Our local SEO service includes keyword research targeting search terms your Springfield-area customers are actually using, on-page optimization of your existing website content, Google Business Profile management (including image uploads, posts, and review response strategy), and local backlink building from Springfield-area directories and publications to grow your domain authority.
+
+Q: Do you manage Google Business Profiles?
+A: Yes. Google Business Profile management is a core part of our local SEO service. We optimize your profile with accurate business information, service descriptions, photos, and regular posts. We also help you develop a strategy for generating and responding to Google reviews, which is one of the strongest local ranking signals.
+
+Q: How much does local SEO cost in Springfield, MO?
+A: Local SEO pricing depends on the scope of work, the competitiveness of your industry, and how many locations you need to optimize for. Contact us for a free consultation and a custom quote. We work with small businesses and nonprofits across the 417 area and offer packages designed to deliver real results at a realistic budget.
+
+Q: Can you optimize a website that someone else built?
+A: Yes. We regularly work on existing WordPress, Webflow, Squarespace, Wix, and Shopify sites. We start with a full SEO audit of your current site, identify the highest-impact fixes, and implement changes systematically. We do not require you to rebuild your website to improve your search rankings.
+
+Q: What is the 417 area for local SEO purposes?
+A: The 417 area refers to the Southwest Missouri region covered by the 417 telephone area code, including Springfield, Ozark, Nixa, Republic, Rogersville, Marshfield, and Branson. When we build a local SEO strategy for your business, we target searches originating from these communities and surrounding areas so you reach customers who can actually walk through your door.
+
+================================================
+PAGE 3: WEBSITE AND SEO SERVICES OVERVIEW
+URL: https://deliverdigital.net/seo-and-website-services/
+HEADING TO USE ON PAGE: "Questions About Our Services"
+================================================
+
+Q: What services does Deliver Digital offer?
+A: Deliver Digital offers three core services: custom website design and development, local SEO, and ongoing website management. Our website packages are available in 5-page, 10-page, and 20-page configurations. Our SEO service includes keyword targeting, Google Business Profile management, and local link building. Website management covers ongoing security updates, performance monitoring, and content changes for sites on WordPress, Webflow, Squarespace, Wix, and Shopify.
+
+Q: Do you build websites on platforms other than WordPress?
+A: Our primary platform is WordPress, which we recommend for most small businesses because of its flexibility, SEO capabilities, and long-term ownership benefits. We also provide management and maintenance services for sites built on Webflow, Squarespace, Wix, and Shopify. For new builds, we will recommend the best platform based on your specific needs and goals.
+
+Q: Can I get both a new website and SEO from Deliver Digital?
+A: Yes, and combining both services is the most effective approach. When we build your website, every page is architected with local SEO in mind from the start — the structure, content, metadata, and technical setup are all aligned with your search goals. Clients who launch a new site and start SEO together typically see faster and stronger results than those who do them separately.
+
+Q: Do you work with nonprofits?
+A: Yes. We build websites and provide digital marketing services for nonprofits throughout the 417 area. We understand that nonprofit budgets are different from commercial budgets and we offer packages designed to deliver a professional, donation-friendly online presence at a price that makes sense for mission-driven organizations.
+
+Q: What happens if I need changes to my website after it launches?
+A: We offer ongoing website management plans that cover content updates, security patches, plugin updates, performance monitoring, and general maintenance. If you prefer a one-time update rather than an ongoing plan, we also handle individual change requests on a project basis. You are never locked out of your own site — we build on platforms you own.
+
+================================================
+PAGE 4: WEBSITE PACKAGES OVERVIEW
+URL: https://deliverdigital.net/local-website-packages/
+HEADING TO USE ON PAGE: "Questions About Our Website Packages"
+================================================
+
+Q: What is included in every website package from Deliver Digital?
+A: Every website package we offer includes full SEO optimization, mobile-first responsive design, custom development, and Google Search Console integration. We do not use pre-built templates dropped on top of a generic framework. Every page is designed and built with purpose, structured to rank for the keywords your customers are searching.
+
+Q: Which website package is right for my business?
+A: The 5-page package is designed for startups and businesses establishing their first online presence. The 10-page package is built for established businesses that need more content to compete in search results and serve different audience segments. The 20-page package is for businesses in competitive markets that need robust content architecture and the most surface area for SEO. If you are unsure which is right for you, book a free call and we will help you decide.
+
+Q: Do I own my website after it is built?
+A: Yes. You own your website, your domain, and all of the content. We build on WordPress, which means you are never dependent on a proprietary platform that can change its pricing or disappear. After launch, you can manage your site yourself, hire someone else, or continue working with us through a maintenance plan. There are no lock-in contracts on ownership.
+
+Q: Will my website work on mobile devices?
+A: Every website we build is mobile-first, meaning we design and optimize for small screens first and scale up to desktop. More than half of all web traffic comes from mobile devices, and Google uses the mobile version of your site to determine your search rankings. A website that does not perform well on mobile will hurt both your user experience and your SEO.
+
+Q: What do you need from me to start building my website?
+A: We will walk you through the full content gathering process. At minimum, we need your business information, the services or products you want to feature, any photos or images you want to use, and access to your domain registrar. We can advise on what content to write, provide guidance on photography, and handle all technical setup. You do not need to be technical to work with us.
+
+================================================
+PAGE 5: 5-PAGE WEBSITE PACKAGE
+URL: https://deliverdigital.net/5-page-websites-for-starting-businesses/
+HEADING TO USE ON PAGE: "Questions About the 5-Page Package"
+================================================
+
+Q: What pages are included in the 5-page website package?
+A: The standard 5-page configuration includes a homepage, an about page, a services page, a contact page, and one additional page of your choosing — such as a portfolio, testimonials, or a specific service landing page. The exact structure is tailored to your business goals during our discovery call.
+
+Q: Is a 5-page website enough to rank on Google?
+A: For many local businesses just starting out, a well-built 5-page website with solid SEO fundamentals will outperform a larger website that was built without search optimization in mind. We make every page count with proper keyword targeting, metadata, structured content, and technical SEO from day one. As your business grows, you can always expand to a 10 or 20-page package.
+
+Q: Who is the 5-page package designed for?
+A: The 5-page package is designed for new businesses launching their first website, entrepreneurs who need a professional online presence quickly, and established businesses replacing an outdated or poorly performing site. It is the fastest path from no website to a fully optimized, professional site that represents your business well in search results.
+
+Q: Can I upgrade from the 5-page package to a larger package later?
+A: Yes. Our packages are designed to scale. Because we build on WordPress with a consistent architecture, adding pages later is straightforward. When you are ready to expand your content and compete for more search terms, we can grow your site into the 10-page or 20-page structure without starting over.
+
+================================================
+PAGE 6: 10-PAGE WEBSITE PACKAGE
+URL: https://deliverdigital.net/10-page-websites/
+HEADING TO USE ON PAGE: "Questions About the 10-Page Package"
+================================================
+
+Q: What is the advantage of a 10-page website over a 5-page site?
+A: More pages means more opportunity to rank for the keywords your customers are searching. A 5-page site can rank well for a handful of terms. A 10-page site lets you create dedicated pages for each service you offer, each location you serve, and key informational content that builds authority. Google rewards depth and relevance — a 10-page site gives you significantly more surface area to compete.
+
+Q: Who is the 10-page website package designed for?
+A: The 10-page package is designed for established businesses that have outgrown a basic site and want to compete more aggressively in local search results. It is also a strong fit for businesses with multiple services or service areas who need dedicated pages for each offering rather than combining everything onto a single services page.
+
+Q: What types of pages make up a 10-page website?
+A: A typical 10-page structure includes a homepage, about page, individual pages for each core service or product, a contact page, and supporting pages such as a testimonials page, portfolio, or location-specific landing page. We customize the page map for your business during the discovery process.
+
+Q: Does the 10-page package include SEO?
+A: Yes. Full SEO optimization is included in every package we offer. Every page on a 10-page site is individually optimized with keyword-targeted titles, meta descriptions, structured headings, internal links, and technical SEO. We also integrate Google Search Console so you can track your rankings and traffic from day one.
+
+================================================
+PAGE 7: 20-PAGE WEBSITE PACKAGE
+URL: https://deliverdigital.net/20-page-websites-built-for-scaling/
+HEADING TO USE ON PAGE: "Questions About the 20-Page Package"
+================================================
+
+Q: What businesses benefit most from a 20-page website?
+A: The 20-page package is designed for businesses in competitive markets where ranking against established players requires significant content depth. It is also ideal for businesses with multiple service lines, multiple locations, or a need for educational content that builds trust with potential customers before they reach out. If you want to be the go-to authority in your category in the Springfield market, a 20-page site gives you the foundation to get there.
+
+Q: What does a 20-page website architecture look like?
+A: A well-structured 20-page site typically includes a homepage, an about page, individual pages for each major service, location-specific landing pages for the cities you serve, an FAQ or resources section, a blog or news section, a portfolio or case studies page, and a contact page. Every page is mapped to specific search intent and keyword targets during our planning process.
+
+Q: How is a 20-page website different from just having more pages?
+A: More pages with no strategy is just more noise. Every page in our 20-page package is built with a specific purpose: to rank for a defined set of search terms, to serve a specific audience segment, or to move a visitor toward contacting you. The architecture is planned before a single word is written or a pixel is designed. That planning is what separates a 20-page site that performs from one that just exists.
+
+Q: Is the 20-page package a good investment for a small business?
+A: It depends on your market and goals. In Springfield and the surrounding 417 area, some industries are competitive enough that a smaller site simply cannot rank against larger, more established competitors. If you are in a field like legal, medical, home services, real estate, or financial services, the investment in a larger site typically pays back through new client acquisition much faster than in less competitive categories. During our discovery call, we will give you an honest assessment of what level of investment makes sense for your market.
+
+================================================
+PAGE 8: PORTFOLIO
+URL: https://deliverdigital.net/portfolio/
+HEADING TO USE ON PAGE: "Questions About Our Work"
+================================================
+
+Q: What kinds of businesses has Deliver Digital built websites for?
+A: We have built websites for a wide range of businesses and organizations across Springfield and the 417 area, including nonprofits and churches, health and wellness practices, home service businesses, real estate professionals, ministry consulting organizations, and custom technology platforms. Our portfolio includes sites built on WordPress as well as more complex builds using Next.js and headless CMS architectures.
+
+Q: Can you show me examples of websites you have built?
+A: Yes. Our portfolio page features recent client projects including Ozark Home Away Fellowship, Massage by Sonya, 417 Freelancers, Wellness Ethos Chiropractic, Ekkleon Ministry Consulting, and Sell and Go Homes. Each project listing includes a description of the goals, approach, and technology used.
+
+Q: Do all of your client websites look the same?
+A: No. Every website we build starts from scratch based on your brand, your audience, and your goals. We do not apply a template and change the colors. The visual direction, content structure, and functionality of each site is unique to the client. You can see the variety in our portfolio — the sites look and function differently from one another because each one was designed for a specific business.
+
+Q: Can Deliver Digital build something more complex than a standard business site?
+A: Yes. We have built platforms with custom functionality including a freelancer directory with search and filtering, headless WordPress CMS builds with Next.js frontends deployed on Vercel, and event management integrations. If your project requires custom development beyond a standard website, reach out and describe what you are trying to build.
+
+================================================
+PAGE 9: CONTACT
+URL: https://deliverdigital.net/contact/
+HEADING TO USE ON PAGE: "Questions Before You Reach Out"
+================================================
+
+Q: How do I contact Deliver Digital?
+A: You can reach us by phone at (417) 413-8736, by email at info@deliverdigital.net, or by booking a free discovery call directly on our calendar at calendly.com/koleman-deliverdigital. The contact form on this page goes directly to Koleman — you will not be routed through an answering service or support queue.
+
+Q: How quickly does Deliver Digital respond to inquiries?
+A: We respond to all inquiries within one business day. For time-sensitive projects, calling or booking directly on the calendar is the fastest path to getting a conversation scheduled.
+
+Q: Is the discovery call free?
+A: Yes. The initial discovery call is completely free and carries no obligation. It is an honest conversation about your goals, your current situation, and what options make sense for your budget and timeline. If we are not the right fit, we will tell you that too.
+
+Q: What should I prepare before the discovery call?
+A: It helps to have a general idea of what you want your website to do, a sense of your target customers, any competitors you want to outrank, and a rough budget range. You do not need to have everything figured out — that is what the call is for. The more you can tell us about your goals, the better we can tailor our recommendations.
+
+Q: Does Deliver Digital work with clients outside of Springfield?
+A: Our primary focus is the 417 area — Springfield, Ozark, Nixa, Republic, Rogersville, Marshfield, and Branson. We occasionally work with clients in other parts of Missouri and beyond, particularly for SEO consulting and website management. Contact us and we will let you know if we are a good fit for your location and project type.
+
+================================================
+PAGE 10: INDUSTRIES
+URL: https://deliverdigital.net/industries/
+HEADING TO USE ON PAGE: "Questions About Working With Your Industry"
+================================================
+
+Q: Does Deliver Digital specialize in any specific industries?
+A: We serve three primary categories: small businesses, nonprofits, and startups across the Springfield and 417 area. Within those categories, we have built websites for health and wellness practices, churches and ministry organizations, home service businesses, real estate professionals, restaurants, professional services, and technology platforms. If your business serves people in Southwest Missouri, we have the experience to build your digital presence.
+
+Q: Does Deliver Digital have experience building websites for nonprofits?
+A: Yes. Nonprofits have specific needs that commercial sites do not — donation-friendly design, volunteer and event management, accessible content, and a communication style that builds trust with donors. We understand those needs and have built websites for churches and ministry organizations in the Springfield area. We offer pricing that is appropriate for nonprofit budgets.
+
+Q: Can Deliver Digital help a startup that does not have a brand yet?
+A: Yes. We work with founders at the earliest stages and can help develop the visual direction for your brand alongside your website. A startup does not need a full brand identity package to get started — a clear name, a defined service, and a target customer is enough to begin building a site that plants your flag online and starts building search authority.
+
+Q: What industries are most competitive for local SEO in Springfield, MO?
+A: The most competitive categories for local search in the 417 area are legal services, medical and dental, home services (HVAC, plumbing, roofing, cleaning), real estate, financial services, and restaurants. If your business is in one of these categories, we will be direct with you about what it takes to compete and whether our services are the right fit for your goals and budget.
+
+================================================
+END OF FILE
+================================================

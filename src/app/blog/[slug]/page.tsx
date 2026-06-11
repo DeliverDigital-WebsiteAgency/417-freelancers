@@ -117,10 +117,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Meta */}
         <div className="flex flex-wrap items-center gap-4 mb-8 pb-6" style={{ borderBottom: "1px solid #E8C99A" }}>
           {post.author?.node.name && (
-            <span className="flex items-center gap-1.5 text-sm" style={{ color: "#6B5E55" }}>
+            <a
+              href="https://deliverdigital.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm hover:underline"
+              style={{ color: "#6B5E55" }}
+            >
               <User size={14} strokeWidth={1.5} style={{ color: "#C47A3A" }} />
               {post.author.node.name}
-            </span>
+            </a>
           )}
           <span className="flex items-center gap-1.5 text-sm" style={{ color: "#6B5E55" }}>
             <CalendarDays size={14} strokeWidth={1.5} style={{ color: "#C47A3A" }} />
