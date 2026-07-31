@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Download, Loader2, ChevronLeft, ShieldAlert } from "lucide-react";
+import { Download, Loader2, ChevronLeft, ShieldAlert, Upload, X } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -30,6 +30,12 @@ type ContractState = {
   terminationDays: number;
   governingState: string;
   additionalTerms: string;
+  includeTimeline: boolean;
+  includePayment: boolean;
+  includeLateFee: boolean;
+  primaryColor: string;
+  logoDataUrl: string;
+  acknowledgedDisclaimer: boolean;
 };
 
 function today() {
@@ -75,20 +81,30 @@ const DEFAULT_STATE: ContractState = {
   terminationDays: 14,
   governingState: "Missouri",
   additionalTerms: "",
+  includeTimeline: true,
+  includePayment: true,
+  includeLateFee: true,
+  primaryColor: "#7C4A1E",
+  logoDataUrl: "",
+  acknowledgedDisclaimer: false,
 };
 
 const STORAGE_KEY = "frl_contract_freelancer";
+const MAX_LOGO_BYTES = 2 * 1024 * 1024;
 
 // ─── Shared field components ──────────────────────────────────────────────────
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
-    <p
-      className="text-xs font-bold uppercase tracking-widest mb-4"
-      style={{ color: "#7C4A1E", borderBottom: "1px solid #E8C99A", paddingBottom: "8px" }}
+    <div
+      className="flex items-center justify-between gap-3 mb-4"
+      style={{ borderBottom: "1px solid #E8C99A", paddingBottom: "8px" }}
     >
-      {children}
-    </p>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "#7C4A1E" }}>
+        {children}
+      </p>
+      {action}
+    </div>
   );
 }
 function Label({ children }: { children: React.ReactNode }) {
@@ -102,17 +118,18 @@ const inputBase = "w-full rounded border px-3 py-2 text-sm focus:outline-none fo
 const inputStyle: React.CSSProperties = { borderColor: "#E8C99A", backgroundColor: "#fff", color: "#2C2420" };
 
 function Input({
-  value, onChange, placeholder = "", type = "text", className = "",
+  value, onChange, placeholder = "", type = "text", className = "", disabled = false,
 }: {
-  value: string | number; onChange: (v: string) => void; placeholder?: string; type?: string; className?: string;
+  value: string | number; onChange: (v: string) => void; placeholder?: string; type?: string; className?: string; disabled?: boolean;
 }) {
   return (
     <input
       type={type}
-      className={`${inputBase} ${className}`}
+      className={`${inputBase} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
       style={inputStyle}
       value={value}
       placeholder={placeholder}
+      disabled={disabled}
       onChange={(e) => onChange(e.target.value)}
     />
   );
@@ -148,6 +165,7 @@ export function ContractClient() {
   });
   const [step, setStep] = useState<"form" | "preview">("form");
   const [exporting, setExporting] = useState(false);
+  const [logoError, setLogoError] = useState<string | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
   function set<K extends keyof ContractState>(key: K, value: ContractState[K]) {
@@ -155,6 +173,7 @@ export function ContractClient() {
       const next = { ...prev, [key]: value };
       const freelancerKeys: (keyof ContractState)[] = [
         "freelancerName", "freelancerBusiness", "freelancerAddress", "freelancerEmail", "freelancerPhone",
+        "primaryColor", "logoDataUrl",
       ];
       if (freelancerKeys.includes(key)) {
         try {
@@ -164,11 +183,32 @@ export function ContractClient() {
             freelancerAddress: next.freelancerAddress,
             freelancerEmail: next.freelancerEmail,
             freelancerPhone: next.freelancerPhone,
+            primaryColor: next.primaryColor,
+            logoDataUrl: next.logoDataUrl,
           }));
         } catch {}
       }
       return next;
     });
+  }
+
+  function handleLogoUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      setLogoError("Please upload an image file.");
+      return;
+    }
+    if (file.size > MAX_LOGO_BYTES) {
+      setLogoError("Logo must be smaller than 2MB.");
+      return;
+    }
+    setLogoError(null);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") set("logoDataUrl", reader.result);
+    };
+    reader.readAsDataURL(file);
   }
 
   async function exportPDF() {
@@ -216,6 +256,134 @@ export function ContractClient() {
   const balanceAmount = state.totalFee - depositAmount;
   const deliverableLines = state.deliverables.split("\n").map((l) => l.trim()).filter(Boolean);
 
+  // ─── Contract sections (filtered and numbered dynamically so toggles never break numbering) ──
+
+  const sections: { title: string; visible: boolean; content: React.ReactNode }[] = [
+    {
+      title: "Scope of Work",
+      visible: true,
+      content: (
+        <>
+          <p>{state.projectDescription || "[Describe the project and the work to be performed.]"}</p>
+          {deliverableLines.length > 0 && (
+            <>
+              <p style={{ marginTop: "8px", marginBottom: "4px", fontWeight: "bold" }}>Deliverables:</p>
+              <ul style={{ paddingLeft: "20px", margin: 0 }}>
+                {deliverableLines.map((line, i) => <li key={i}>{line}</li>)}
+              </ul>
+            </>
+          )}
+        </>
+      ),
+    },
+    {
+      title: "Timeline",
+      visible: state.includeTimeline,
+      content: (
+        <p>
+          Work will begin on <strong>{formatDate(state.startDate)}</strong> and is expected to be completed
+          by <strong>{formatDate(state.completionDate)}</strong>. Timelines may shift by mutual written
+          agreement if scope changes or delays outside either Party&apos;s reasonable control occur.
+        </p>
+      ),
+    },
+    {
+      title: "Payment Terms",
+      visible: state.includePayment,
+      content: (
+        <>
+          <p>
+            The total fee for the Scope of Work described above is <strong>${fmt(state.totalFee)}</strong>.
+            {state.depositPercent > 0 && (
+              <> A deposit of <strong>{state.depositPercent}% (${fmt(depositAmount)})</strong> is due before
+              work begins, with the remaining <strong>${fmt(balanceAmount)}</strong> due upon completion.</>
+            )}
+          </p>
+          <p style={{ marginTop: "8px" }}>
+            Payment will be made via {state.paymentMethod || "a method agreed upon by both Parties"}.
+            {state.includeLateFee && state.lateFeePercent > 0 && (
+              <> Invoices not paid within the stated terms are subject to a late fee of{" "}
+              <strong>{state.lateFeePercent}% per month</strong> on the outstanding balance.</>
+            )}
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Revisions",
+      visible: true,
+      content: (
+        <p>
+          This Agreement includes <strong>{state.revisionRounds} round{state.revisionRounds === 1 ? "" : "s"} of
+          revisions</strong> on the deliverables above. Additional revision requests beyond this scope may be
+          billed separately at Freelancer&apos;s standard rate, to be agreed upon before additional work begins.
+        </p>
+      ),
+    },
+    {
+      title: "Ownership and Intellectual Property",
+      visible: true,
+      content: (
+        <p>
+          {state.ipTransfer === "final_payment"
+            ? "Ownership of the final deliverables transfers to Client upon receipt of payment in full. Until final payment is made, all work product remains the property of Freelancer."
+            : "Ownership of the final deliverables transfers to Client upon execution of this Agreement, subject to payment terms above."}
+          {" "}Freelancer retains the right to display the work in their portfolio unless otherwise agreed in writing.
+        </p>
+      ),
+    },
+    {
+      title: "Confidentiality",
+      visible: state.confidentiality,
+      content: (
+        <p>
+          Both Parties agree to keep confidential any non-public business, technical, or financial
+          information shared during this engagement, and not to disclose it to third parties without
+          written consent, except as required by law.
+        </p>
+      ),
+    },
+    {
+      title: "Independent Contractor Status",
+      visible: true,
+      content: (
+        <p>
+          Freelancer is an independent contractor, not an employee, partner, or agent of Client. Freelancer
+          is responsible for their own taxes, insurance, and benefits, and retains control over how the work
+          is performed.
+        </p>
+      ),
+    },
+    {
+      title: "Termination",
+      visible: true,
+      content: (
+        <p>
+          Either Party may terminate this Agreement with <strong>{state.terminationDays} days</strong> written
+          notice. Client agrees to pay for all work completed up to the termination date. Any deposit paid is
+          non-refundable for work already performed.
+        </p>
+      ),
+    },
+    {
+      title: "Governing Law",
+      visible: true,
+      content: (
+        <p>
+          This Agreement is governed by the laws of the State of <strong>{state.governingState || "Missouri"}</strong>,
+          without regard to conflict of law principles.
+        </p>
+      ),
+    },
+    {
+      title: "Additional Terms",
+      visible: !!state.additionalTerms,
+      content: <p style={{ whiteSpace: "pre-line" }}>{state.additionalTerms}</p>,
+    },
+  ];
+
+  let sectionNumber = 0;
+
   // ─── Contract document ────────────────────────────────────────────────────
 
   const contractDocument = (
@@ -230,23 +398,16 @@ export function ContractClient() {
         fontSize: "13px",
       }}
     >
-      <div
-        style={{
-          padding: "10px 14px",
-          marginBottom: "28px",
-          borderRadius: "4px",
-          backgroundColor: "#fdf3e7",
-          border: "1px solid #C47A3A55",
-          fontSize: "10.5px",
-          color: "#7C4A1E",
-        }}
-      >
-        This is a general-purpose template provided for convenience and does not constitute legal advice.
-        Review with a licensed attorney before use, especially for high-value or complex projects.
-      </div>
-
       <div style={{ textAlign: "center", marginBottom: "28px" }}>
-        <div style={{ fontSize: "22px", fontWeight: "bold", color: "#7C4A1E" }}>Freelance Services Agreement</div>
+        {state.logoDataUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={state.logoDataUrl}
+            alt=""
+            style={{ maxHeight: "56px", maxWidth: "240px", margin: "0 auto 14px", display: "block", objectFit: "contain" }}
+          />
+        )}
+        <div style={{ fontSize: "22px", fontWeight: "bold", color: state.primaryColor }}>Freelance Services Agreement</div>
         {state.projectTitle && (
           <div style={{ fontSize: "13px", color: "#666", marginTop: "4px" }}>{state.projectTitle}</div>
         )}
@@ -262,7 +423,7 @@ export function ContractClient() {
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", marginBottom: "24px" }}>
         <div>
-          <div style={{ fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1.2px", color: "#C47A3A", marginBottom: "6px" }}>
+          <div style={{ fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1.2px", color: state.primaryColor, marginBottom: "6px" }}>
             Freelancer
           </div>
           <div>{state.freelancerName || "[Freelancer Name]"}</div>
@@ -272,7 +433,7 @@ export function ContractClient() {
           {state.freelancerPhone && <div style={{ color: "#555" }}>{state.freelancerPhone}</div>}
         </div>
         <div>
-          <div style={{ fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1.2px", color: "#C47A3A", marginBottom: "6px" }}>
+          <div style={{ fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1.2px", color: state.primaryColor, marginBottom: "6px" }}>
             Client
           </div>
           <div>{state.clientName || "[Client Name]"}</div>
@@ -282,110 +443,26 @@ export function ContractClient() {
         </div>
       </div>
 
-      <ContractSection number={1} title="Scope of Work">
-        <p>{state.projectDescription || "[Describe the project and the work to be performed.]"}</p>
-        {deliverableLines.length > 0 && (
-          <>
-            <p style={{ marginTop: "8px", marginBottom: "4px", fontWeight: "bold" }}>Deliverables:</p>
-            <ul style={{ paddingLeft: "20px", margin: 0 }}>
-              {deliverableLines.map((line, i) => <li key={i}>{line}</li>)}
-            </ul>
-          </>
-        )}
-      </ContractSection>
+      {sections.filter((s) => s.visible).map((s) => {
+        sectionNumber += 1;
+        return (
+          <ContractSection key={s.title} number={sectionNumber} title={s.title} color={state.primaryColor}>
+            {s.content}
+          </ContractSection>
+        );
+      })}
 
-      <ContractSection number={2} title="Timeline">
-        <p>
-          Work will begin on <strong>{formatDate(state.startDate)}</strong> and is expected to be completed
-          by <strong>{formatDate(state.completionDate)}</strong>. Timelines may shift by mutual written
-          agreement if scope changes or delays outside either Party&apos;s reasonable control occur.
-        </p>
-      </ContractSection>
-
-      <ContractSection number={3} title="Payment Terms">
-        <p>
-          The total fee for the Scope of Work described above is <strong>${fmt(state.totalFee)}</strong>.
-          {state.depositPercent > 0 && (
-            <> A deposit of <strong>{state.depositPercent}% (${fmt(depositAmount)})</strong> is due before
-            work begins, with the remaining <strong>${fmt(balanceAmount)}</strong> due upon completion.</>
-          )}
-        </p>
-        <p style={{ marginTop: "8px" }}>
-          Payment will be made via {state.paymentMethod || "a method agreed upon by both Parties"}.
-          {state.lateFeePercent > 0 && (
-            <> Invoices not paid within the stated terms are subject to a late fee of{" "}
-            <strong>{state.lateFeePercent}% per month</strong> on the outstanding balance.</>
-          )}
-        </p>
-      </ContractSection>
-
-      <ContractSection number={4} title="Revisions">
-        <p>
-          This Agreement includes <strong>{state.revisionRounds} round{state.revisionRounds === 1 ? "" : "s"} of
-          revisions</strong> on the deliverables above. Additional revision requests beyond this scope may be
-          billed separately at Freelancer&apos;s standard rate, to be agreed upon before additional work begins.
-        </p>
-      </ContractSection>
-
-      <ContractSection number={5} title="Ownership and Intellectual Property">
-        <p>
-          {state.ipTransfer === "final_payment"
-            ? "Ownership of the final deliverables transfers to Client upon receipt of payment in full. Until final payment is made, all work product remains the property of Freelancer."
-            : "Ownership of the final deliverables transfers to Client upon execution of this Agreement, subject to payment terms above."}
-          {" "}Freelancer retains the right to display the work in their portfolio unless otherwise agreed in writing.
-        </p>
-      </ContractSection>
-
-      {state.confidentiality && (
-        <ContractSection number={6} title="Confidentiality">
-          <p>
-            Both Parties agree to keep confidential any non-public business, technical, or financial
-            information shared during this engagement, and not to disclose it to third parties without
-            written consent, except as required by law.
-          </p>
-        </ContractSection>
-      )}
-
-      <ContractSection number={state.confidentiality ? 7 : 6} title="Independent Contractor Status">
-        <p>
-          Freelancer is an independent contractor, not an employee, partner, or agent of Client. Freelancer
-          is responsible for their own taxes, insurance, and benefits, and retains control over how the work
-          is performed.
-        </p>
-      </ContractSection>
-
-      <ContractSection number={state.confidentiality ? 8 : 7} title="Termination">
-        <p>
-          Either Party may terminate this Agreement with <strong>{state.terminationDays} days</strong> written
-          notice. Client agrees to pay for all work completed up to the termination date. Any deposit paid is
-          non-refundable for work already performed.
-        </p>
-      </ContractSection>
-
-      <ContractSection number={state.confidentiality ? 9 : 8} title="Governing Law">
-        <p>
-          This Agreement is governed by the laws of the State of <strong>{state.governingState || "Missouri"}</strong>,
-          without regard to conflict of law principles.
-        </p>
-      </ContractSection>
-
-      {state.additionalTerms && (
-        <ContractSection number={state.confidentiality ? 10 : 9} title="Additional Terms">
-          <p style={{ whiteSpace: "pre-line" }}>{state.additionalTerms}</p>
-        </ContractSection>
-      )}
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", marginTop: "40px", paddingTop: "24px", borderTop: "2px solid #7C4A1E" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", marginTop: "40px", paddingTop: "24px", borderTop: `2px solid ${state.primaryColor}` }}>
         <div>
           <div style={{ borderBottom: "1px solid #999", height: "36px" }} />
           <div style={{ fontSize: "11px", color: "#666", marginTop: "4px" }}>
-            {state.freelancerName || "Freelancer"} &mdash; Signature &amp; Date
+            {state.freelancerName || "Freelancer"} - Signature &amp; Date
           </div>
         </div>
         <div>
           <div style={{ borderBottom: "1px solid #999", height: "36px" }} />
           <div style={{ fontSize: "11px", color: "#666", marginTop: "4px" }}>
-            {state.clientName || "Client"} &mdash; Signature &amp; Date
+            {state.clientName || "Client"} - Signature &amp; Date
           </div>
         </div>
       </div>
@@ -438,10 +515,20 @@ export function ContractClient() {
           style={{ backgroundColor: "#fdf3e7", border: "1px solid #C47A3A55" }}
         >
           <ShieldAlert size={16} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
-          <p className="text-xs leading-relaxed" style={{ color: "#7C4A1E" }}>
-            This tool generates a general-purpose template, not legal advice. Review the final document with
-            a licensed attorney before sending it to a client, especially for larger or more complex projects.
-          </p>
+          <div>
+            <p className="text-xs leading-relaxed" style={{ color: "#7C4A1E" }}>
+              This tool generates a general-purpose template, not legal advice. Review the final document with
+              a licensed attorney before sending it to a client, especially for larger or more complex projects.
+            </p>
+            <label className="flex items-center gap-2 mt-2 text-xs font-semibold" style={{ color: "#7C4A1E" }}>
+              <input
+                type="checkbox"
+                checked={state.acknowledgedDisclaimer}
+                onChange={(e) => set("acknowledgedDisclaimer", e.target.checked)}
+              />
+              I understand this is not legal advice and will review the document before sending it.
+            </label>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -475,23 +562,118 @@ export function ContractClient() {
               <Label>Deliverables (one per line)</Label>
               <Textarea value={state.deliverables} onChange={(v) => set("deliverables", v)} rows={3} placeholder={"5-page responsive website\nContact form integration\nBasic on-page SEO setup"} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div><Label>Start date</Label><Input value={state.startDate} onChange={(v) => set("startDate", v)} type="date" /></div>
-              <div><Label>Completion date</Label><Input value={state.completionDate} onChange={(v) => set("completionDate", v)} type="date" /></div>
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <Label>Start / completion date</Label>
+                <label className="flex items-center gap-1.5 text-xs" style={{ color: "#6B5E55" }}>
+                  <input
+                    type="checkbox"
+                    checked={state.includeTimeline}
+                    onChange={(e) => set("includeTimeline", e.target.checked)}
+                  />
+                  Include in contract
+                </label>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <Input value={state.startDate} onChange={(v) => set("startDate", v)} type="date" disabled={!state.includeTimeline} />
+                <Input value={state.completionDate} onChange={(v) => set("completionDate", v)} type="date" disabled={!state.includeTimeline} />
+              </div>
             </div>
           </div>
         </div>
 
         <div>
-          <SectionLabel>Payment</SectionLabel>
+          <SectionLabel>Branding (optional)</SectionLabel>
+          <div className="space-y-4">
+            <div>
+              <Label>Logo</Label>
+              {state.logoDataUrl ? (
+                <div className="flex items-center gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={state.logoDataUrl}
+                    alt="Logo preview"
+                    className="h-10 w-auto rounded border"
+                    style={{ borderColor: "#E8C99A" }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => set("logoDataUrl", "")}
+                    className="flex items-center gap-1 text-xs font-medium"
+                    style={{ color: "#C47A3A" }}
+                  >
+                    <X size={12} /> Remove
+                  </button>
+                </div>
+              ) : (
+                <label
+                  className="inline-flex items-center gap-2 w-fit cursor-pointer rounded border px-3 py-2 text-xs font-medium"
+                  style={{ borderColor: "#E8C99A", color: "#6B5E55" }}
+                >
+                  <Upload size={13} />
+                  Upload logo
+                  <input type="file" accept="image/*" className="hidden" onChange={handleLogoUpload} />
+                </label>
+              )}
+              {logoError && <p className="mt-1 text-xs" style={{ color: "#991b1b" }}>{logoError}</p>}
+              <p className="mt-1 text-[11px]" style={{ color: "#6B5E55" }}>PNG or JPG, up to 2MB. Appears at the top of your PDF.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Primary color</Label>
+                <input
+                  type="color"
+                  value={state.primaryColor}
+                  onChange={(e) => set("primaryColor", e.target.value)}
+                  className="h-9 w-full rounded border cursor-pointer"
+                  style={{ borderColor: "#E8C99A" }}
+                />
+              </div>
+              <div>
+                <Label>Hex code</Label>
+                <Input value={state.primaryColor} onChange={(v) => set("primaryColor", v)} placeholder="#7C4A1E" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <SectionLabel
+            action={
+              <label className="flex items-center gap-2 text-xs font-medium normal-case tracking-normal" style={{ color: "#6B5E55" }}>
+                <input
+                  type="checkbox"
+                  checked={state.includePayment}
+                  onChange={(e) => set("includePayment", e.target.checked)}
+                />
+                Include in contract
+              </label>
+            }
+          >
+            Payment
+          </SectionLabel>
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-4">
-              <div><Label>Total fee ($)</Label><Input value={state.totalFee} onChange={(v) => set("totalFee", parseFloat(v) || 0)} type="number" /></div>
-              <div><Label>Deposit (%)</Label><Input value={state.depositPercent} onChange={(v) => set("depositPercent", parseFloat(v) || 0)} type="number" /></div>
+              <div><Label>Total fee ($)</Label><Input value={state.totalFee} onChange={(v) => set("totalFee", parseFloat(v) || 0)} type="number" disabled={!state.includePayment} /></div>
+              <div><Label>Deposit (%)</Label><Input value={state.depositPercent} onChange={(v) => set("depositPercent", parseFloat(v) || 0)} type="number" disabled={!state.includePayment} /></div>
             </div>
-            <div><Label>Payment method</Label><Input value={state.paymentMethod} onChange={(v) => set("paymentMethod", v)} placeholder="Check, Venmo, or bank transfer" /></div>
+            <div><Label>Payment method</Label><Input value={state.paymentMethod} onChange={(v) => set("paymentMethod", v)} placeholder="Check, Venmo, or bank transfer" disabled={!state.includePayment} /></div>
             <div className="grid grid-cols-2 gap-4">
-              <div><Label>Late fee (% per month)</Label><Input value={state.lateFeePercent} onChange={(v) => set("lateFeePercent", parseFloat(v) || 0)} type="number" /></div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <Label>Late fee (% per month)</Label>
+                  <label className="flex items-center gap-1.5 text-xs" style={{ color: "#6B5E55" }}>
+                    <input
+                      type="checkbox"
+                      checked={state.includeLateFee}
+                      disabled={!state.includePayment}
+                      onChange={(e) => set("includeLateFee", e.target.checked)}
+                    />
+                    On
+                  </label>
+                </div>
+                <Input value={state.lateFeePercent} onChange={(v) => set("lateFeePercent", parseFloat(v) || 0)} type="number" disabled={!state.includePayment || !state.includeLateFee} />
+              </div>
               <div><Label>Revision rounds included</Label><Input value={state.revisionRounds} onChange={(v) => set("revisionRounds", parseInt(v) || 0)} type="number" /></div>
             </div>
           </div>
@@ -544,21 +726,27 @@ export function ContractClient() {
                 }),
               }).catch(() => {});
             }}
-            className="w-full rounded-md py-3 text-sm font-semibold transition-colors"
+            disabled={!state.acknowledgedDisclaimer}
+            className="w-full rounded-md py-3 text-sm font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ backgroundColor: "#7C4A1E", color: "#F5EFE6" }}
           >
             Generate Contract
           </button>
+          {!state.acknowledgedDisclaimer && (
+            <p className="mt-2 text-center text-xs" style={{ color: "#6B5E55" }}>
+              Check the box above to confirm you understand this isn&apos;t legal advice.
+            </p>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-function ContractSection({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {
+function ContractSection({ number, title, color, children }: { number: number; title: string; color: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "18px" }}>
-      <div style={{ fontSize: "13px", fontWeight: "bold", color: "#7C4A1E", marginBottom: "4px" }}>
+      <div style={{ fontSize: "13px", fontWeight: "bold", color, marginBottom: "4px" }}>
         {number}. {title}
       </div>
       {children}
