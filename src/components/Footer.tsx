@@ -23,6 +23,8 @@ const links = {
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Resources", href: "/resources" },
     { label: "Invoice Generator", href: "/invoice" },
+    { label: "Rate Calculator", href: "/rate-calculator" },
+    { label: "Contract Generator", href: "/contract-generator" },
     { label: "Join the Directory", href: "/apply" },
   ],
   Legal: [

@@ -4,7 +4,13 @@
       "PowerShell(Invoke-WebRequest -Uri \"https://cms.417freelancers.com/wp-content/uploads/2026/05/favicon-icon.png\" -OutFile \"public\\\\favicon.png\"; Write-Host \"favicon.png done: $?\")",
       "PowerShell(Set-Location \"c:\\\\Users\\\\Koleman Leaders.chur\\\\Documents\\\\websites\\\\417freelancers\"; Invoke-WebRequest -Uri \"https://cms.417freelancers.com/wp-content/uploads/2026/05/og-image-cream.png\" -OutFile \"public\\\\og-image.png\"; Write-Host \"done: $?\")",
       "Skill(akii-seo-ai-search-optimizer:create-topic)",
-      "WebSearch"
+      "WebSearch",
+      "Skill(akii-seo-ai-search-optimizer:create-content)",
+      "WebFetch(domain:www.417freelancers.com)",
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 80)",
+      "Skill(run)",
+      "PowerShell(Test-Path node_modules\\\\playwright; Test-Path node_modules\\\\.bin\\\\playwright; npx playwright --version 2>&1)",
+      "PowerShell(npx playwright install chromium --with-deps 2>&1 | Select-Object -Last 30)"
     ]
   }
 }

@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.
 export const metadata: Metadata = {
   title: "Freelancer Resources | 417 Freelancers",
   description:
-    "Free tools for freelancers in the 417 area. Create professional invoices instantly with no account required.",
+    "Free tools for freelancers in the 417 area. Create invoices, calculate your rate, and generate contracts instantly with no account required.",
   alternates: { canonical: `${siteUrl}/resources` },
   robots: { index: true, follow: true },
 };
@@ -57,6 +57,42 @@ export default function ResourcesPage() {
             </div>
             <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
               Create and export professional PDF invoices right here on 417 Freelancers. Add your logo, brand colors, line items, and a payment link. No account required.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Open Tool
+            </span>
+          </Link>
+          <Link
+            href="/rate-calculator"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                Free Rate Calculator
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              Calculate your ideal freelance hourly rate based on your income goals, expenses, taxes, and billable hours.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Open Tool
+            </span>
+          </Link>
+          <Link
+            href="/contract-generator"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                Free Contract Generator
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              Build a professional freelance services agreement covering scope, payment, revisions, and ownership. Export as PDF.
             </p>
             <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
               Open Tool
