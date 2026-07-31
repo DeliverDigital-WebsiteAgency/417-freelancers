@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SearchX } from "lucide-react";
 import { getFreelancers } from "@/lib/api";
 import { FreelancerList } from "@/components/FreelancerList";
@@ -85,7 +86,7 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
             const isActive = (category ?? "") === cat.value;
             const href = cat.value ? `/directory?category=${cat.value}` : "/directory";
             return (
-              <a
+              <Link
                 key={cat.value}
                 href={href}
                 className="px-4 py-2 rounded-full text-sm font-medium transition-colors"
@@ -96,7 +97,7 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
                 }
               >
                 {cat.label}
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -115,9 +116,9 @@ export default async function DirectoryPage({ searchParams }: PageProps) {
             <p className="text-lg font-medium" style={{ color: "#2C2420" }}>No freelancers found</p>
             <p className="mt-1 text-sm" style={{ color: "#6B5E55" }}>
               {category ? "Try a different category or " : ""}
-              <a href="/directory" style={{ color: "#C47A3A" }} className="hover:underline">
+              <Link href="/directory" style={{ color: "#C47A3A" }} className="hover:underline">
                 view all freelancers
-              </a>
+              </Link>
             </p>
           </div>
         )}
