@@ -11,13 +11,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Blog | 417 Freelancers — Springfield, MO",
+    absolute: "Blog | 417 Freelancers, Springfield, MO",
   },
   description:
     "Tips on hiring freelancers, growing your local business, and building the Springfield creative community. From the 417 Freelancers blog.",
   alternates: { canonical: `${siteUrl}/blog` },
   openGraph: {
-    title: "Blog | 417 Freelancers — Springfield, MO",
+    title: "Blog | 417 Freelancers, Springfield, MO",
     description:
       "Freelancing tips, local business advice, and community news from the 417 Freelancers blog.",
     url: `${siteUrl}/blog`,
@@ -76,7 +76,7 @@ export default async function BlogPage() {
           <div className="text-center py-20">
             <p className="text-lg font-medium" style={{ color: "#2C2420" }}>No posts yet</p>
             <p className="mt-2 text-sm" style={{ color: "#6B5E55" }}>
-              Check back soon — content is on the way.
+              Check back soon: content is on the way.
             </p>
           </div>
         ) : (

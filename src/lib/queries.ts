@@ -135,7 +135,7 @@ export const GET_ALL_FREELANCER_SLUGS = /* GraphQL */ `
 `;
 
 // ---------------------------------------------------------------------------
-// Blog posts — listing
+// Blog posts - listing
 // ---------------------------------------------------------------------------
 
 export const GET_POSTS = /* GraphQL */ `
@@ -174,7 +174,7 @@ export const GET_POSTS = /* GraphQL */ `
 `;
 
 // ---------------------------------------------------------------------------
-// Blog posts — single post
+// Blog posts - single post
 // ---------------------------------------------------------------------------
 
 export const GET_POST = /* GraphQL */ `
@@ -216,7 +216,7 @@ export const GET_POST = /* GraphQL */ `
 `;
 
 // ---------------------------------------------------------------------------
-// Blog posts — all slugs for static generation
+// Blog posts - all slugs for static generation
 // ---------------------------------------------------------------------------
 
 export const GET_ALL_POST_SLUGS = /* GraphQL */ `

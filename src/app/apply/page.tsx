@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.417freelancers.
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Apply to Join | 417 Freelancers — Springfield, MO Freelancer Directory",
+    absolute: "Apply to Join | 417 Freelancers, Springfield, MO Freelancer Directory",
   },
   description:
     "Apply to be listed in the 417 Freelancers directory. Showcase your skills to businesses in Springfield, MO and the 417 area. Free to list. Reviewed within 3 business days.",

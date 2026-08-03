@@ -22,7 +22,7 @@ const features = [
   {
     icon: Palette,
     title: "Your brand, your colors",
-    body: "Upload your logo and set your brand colors. Saved automatically — ready next time you visit.",
+    body: "Upload your logo and set your brand colors. Saved automatically, ready next time you visit.",
   },
   {
     icon: Download,
