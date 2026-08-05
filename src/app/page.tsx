@@ -92,7 +92,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold mb-6" style={{ color: "#2C2420" }}>Keep it local. Keep it real.</h2>
           <p className="text-base leading-relaxed" style={{ color: "#6B5E55" }}>
-            When you hire local, you&apos;re not just getting a freelancer, you&apos;re investing in your community. Local professionals understand the market, show up when it counts, and have a reputation worth protecting. In Southwest Missouri, we look out for each other. This directory exists to make those connections easier.
+            Hiring local means more than finding a freelancer, it means investing in your community. Local pros know the market, show up when it matters, and have a reputation to protect. Here in Southwest Missouri, we look out for each other, and this directory exists to make those connections easier.
           </p>
         </div>
       </section>
