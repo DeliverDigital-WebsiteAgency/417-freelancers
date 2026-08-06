@@ -57,10 +57,10 @@ export default function AboutPage() {
 
       <div className="prose prose-lg max-w-none mb-16">
         <p>
-          <strong>417 Freelancers</strong> is Springfield, Missouri&apos;s dedicated directory for
-          local freelance talent. We built this platform because we noticed a gap: businesses in
-          the 417 area struggled to find skilled local professionals, while freelancers struggled
-          to reach local clients.
+          <strong>417 Freelancers</strong> is Springfield, Missouri&apos;s go-to directory for
+          local freelance talent. We launched this platform after noticing a clear gap: businesses
+          across the 417 area had a hard time finding skilled local professionals, and freelancers
+          had just as hard a time reaching local clients.
         </p>
         <p>
           Whether you&apos;re a startup looking for your first website, an established business
