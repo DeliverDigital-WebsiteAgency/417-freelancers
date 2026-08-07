@@ -40,7 +40,7 @@ export default function ResourcesPage() {
             Tools
           </h2>
           <p className="text-base" style={{ color: "#6B5E55" }}>
-            Software that helps you run a more organized and professional freelance business.
+            Practical tools that keep your freelance business organized and looking professional.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -111,7 +111,7 @@ export default function ResourcesPage() {
             Are you a Springfield freelancer?
           </h2>
           <p className="text-base mb-8" style={{ color: "#C8B8A8" }}>
-            Get listed in the 417 Freelancers directory and connect with local clients who want to work with someone nearby.
+            Join the 417 Freelancers directory and get discovered by local clients looking to hire someone nearby.
           </p>
           <Link
             href="/apply"
