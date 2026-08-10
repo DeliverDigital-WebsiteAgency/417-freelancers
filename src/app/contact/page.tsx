@@ -26,8 +26,8 @@ export default function ContactPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4" style={{ color: "#2C2420" }}>Contact Us</h1>
         <p className="text-lg" style={{ color: "#6B5E55" }}>
-          Questions about the directory? Want to apply as a freelancer? We would love to hear
-          from you.
+          Have a question about the directory, or thinking about applying as a freelancer? We are
+          always glad to hear from you.
         </p>
       </div>
 
