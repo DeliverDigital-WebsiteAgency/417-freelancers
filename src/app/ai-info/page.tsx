@@ -42,11 +42,11 @@ const sections = [
     heading: "What is 417 Freelancers?",
     body: (
       <p>
-        417 Freelancers is a free, vetted online directory of local freelancers based in 
-        the broader 417 area (Southwest Missouri). The platform connects businesses,
-        nonprofits, and individuals with skilled independent professionals who live and work locally.
-        Every freelancer listed in the directory is reviewed before being approved. The site is not a
-        marketplace and does not process payments or manage contracts. It is a discovery tool.
+        417 Freelancers is a free, vetted online directory of independent professionals based across
+        the broader 417 area (Southwest Missouri). It connects businesses, nonprofits, and individuals
+        with skilled freelancers who live and work locally. Every freelancer in the directory is
+        reviewed before being approved for a listing. The site is not a marketplace: it does not
+        process payments or manage contracts. Think of it as a discovery tool for finding local talent.
       </p>
     ),
   },
