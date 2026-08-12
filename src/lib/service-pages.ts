@@ -29,10 +29,10 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance web developers in Springfield, MO and the 417 area. Local developers specializing in websites, e-commerce, apps, and CMS.",
     h1: "Web Developers in Springfield, MO",
     subheadline: "Find a local web developer who knows your market.",
-    intro: "Whether you need a new business website, an e-commerce store, a web application, or a CMS your team can actually manage, Springfield has experienced freelance web developers ready to help. The 417 Freelancers directory connects you with vetted local professionals so you can hire with confidence.",
+    intro: "Springfield is home to experienced freelance web developers ready to build whatever you need, from a new business website or an e-commerce store to a web application or a CMS your team can actually manage. The 417 Freelancers directory puts you in touch with vetted local professionals so you can hire with confidence.",
     body: [
-      "Hiring a local web developer means you get someone who understands the Springfield market, can meet in person, and is invested in the community you both operate in. Rather than hiring through a national platform and hoping for the best, 417 Freelancers gives you access to developers your neighbors have already worked with.",
-      "Springfield-area developers on our platform work across a wide range of technologies and platforms, including WordPress, Shopify, React, Next.js, and custom builds. Whether your project is a simple brochure site or a complex web application, you will find the right skill set here.",
+      "When you hire a local web developer, you get someone who knows the Springfield market, can sit down with you in person, and has a stake in the community you both call home. Instead of gambling on a national platform and hoping for the best, 417 Freelancers points you to developers your neighbors have already trusted with their own projects.",
+      "The Springfield-area developers listed here work across a broad mix of technologies and platforms, from WordPress and Shopify to React, Next.js, and fully custom builds. Whether your project is a straightforward brochure site or a complex web application, the right skill set is waiting in the directory.",
     ],
     highlights: [
       { heading: "Check their portfolio", body: "A good developer's past work tells you more than any resume. Look for projects similar in scope and industry to yours." },
