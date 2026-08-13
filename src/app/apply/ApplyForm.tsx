@@ -95,8 +95,8 @@ export function ApplyForm() {
       <div className="mb-10">
         <h1 className="text-3xl font-bold" style={{ color: "#2C2420" }}>Join the Directory</h1>
         <p className="mt-2 text-base" style={{ color: "#6B5E55" }}>
-          Fill out as much or as little as you have handy. We will reach out to finalize your
-          profile before it goes live.
+          Share as much or as little as you have on hand right now. After you submit, we will
+          follow up to finalize your profile before it goes live.
         </p>
       </div>
 
