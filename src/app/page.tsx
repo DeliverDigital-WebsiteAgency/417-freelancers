@@ -16,17 +16,17 @@ const categories = [
 const steps = [
   {
     title: "Browse the directory",
-    body: "Filter by skill or category to find who you need.",
+    body: "Search by skill or category to find exactly who you need.",
     Icon: Search,
   },
   {
     title: "Review profiles",
-    body: "Check portfolios and bios to make sure they're the right fit.",
+    body: "Look through portfolios and bios to confirm they're the right fit.",
     Icon: User,
   },
   {
     title: "Reach out",
-    body: "Message them directly from their profile.",
+    body: "Reach out directly from their profile.",
     Icon: Mail,
   },
 ];
