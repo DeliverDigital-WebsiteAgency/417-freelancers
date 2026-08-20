@@ -67,9 +67,9 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance graphic designers in Springfield, MO and the 417 area. Local designers for branding, logos, print, and digital design.",
     h1: "Graphic Designers in Springfield, MO",
     subheadline: "Local designers who understand your brand and your market.",
-    intro: "Strong design is one of the most visible investments a business can make. From a logo that lasts a decade to marketing materials that convert, the right graphic designer shapes how the world sees your business. 417 Freelancers connects you with vetted local designers in Springfield and the 417 area.",
+    intro: "Design is one of the most visible investments a business can make. From a logo that holds up for a decade to marketing materials that actually convert, the right graphic designer shapes how the world sees your business. 417 Freelancers connects you with vetted local designers across Springfield and the 417 area.",
     body: [
-      "Working with a local graphic designer means real conversations, faster revisions, and a collaborator who can attend events, visit your storefront, and understand your customer. The designers in our directory have worked with Springfield businesses across retail, food and beverage, real estate, nonprofits, health care, and more.",
+      "Working with a local graphic designer means face-to-face conversations, quicker revisions, and a collaborator who can attend events, drop by your storefront, and get to know your customer. The designers in our directory have partnered with Springfield businesses across retail, food and beverage, real estate, nonprofits, health care, and more.",
       "Whether you need a brand identity from scratch, a redesign of aging materials, signage, social media graphics, or packaging design, the 417 area has talented designers ready to take on your project.",
     ],
     highlights: [
