@@ -105,10 +105,10 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance photographers in Springfield, MO and the 417 area. Local photographers for headshots, commercial, events, and product photography.",
     h1: "Photographers in Springfield, MO",
     subheadline: "Professional photographers who know the 417.",
-    intro: "Great photography makes every part of your business look better: your website, your social media, your team page, your product listings. 417 Freelancers connects you with vetted local photographers in Springfield and across the 417 area, covering commercial and product work, headshots, events, and real estate.",
+    intro: "Strong photography lifts every corner of your business, from your website and social media to your team page and product listings. 417 Freelancers connects you with vetted local photographers across Springfield and the wider 417 area, covering commercial and product shoots, headshots, events, and real estate.",
     body: [
-      "Springfield has a vibrant community of professional photographers who work with local businesses every day. Hiring locally means no travel fees, faster turnaround, and a photographer who can scout locations with you in person.",
-      "Whether you need updated headshots for your leadership team, product photography for an e-commerce launch, event coverage for a company function, or brand photography for a website redesign, you will find the right fit in the 417 Freelancers directory.",
+      "Springfield is home to a thriving community of professional photographers who partner with local businesses every day. Working with someone nearby means no travel fees, quicker turnaround, and a photographer who can scout locations alongside you in person.",
+      "Whether the job calls for fresh headshots for your leadership team, product shots for an e-commerce launch, coverage of a company event, or brand imagery for a website redesign, the 417 Freelancers directory helps you find the right fit.",
     ],
     highlights: [
       { heading: "Match style to your brand", body: "Photography has a look. Review a photographer's portfolio and make sure their style aligns with how you want your business to be perceived." },
