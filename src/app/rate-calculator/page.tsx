@@ -89,8 +89,8 @@ export default function RateCalculatorPage() {
             Free Freelance Rate Calculator
           </h1>
           <p className="text-lg leading-relaxed mb-8" style={{ color: "#C8B8A8" }}>
-            Stop guessing what to charge. Enter your income goals, expenses, and working hours to get a
-            realistic hourly, daily, and project rate in seconds.
+            Stop guessing what to charge. Plug in your income goals, expenses, and working hours, and
+            see a realistic hourly, daily, and project rate come together in seconds.
           </p>
           <a
             href="#calculator-tool"
