@@ -25,6 +25,7 @@ const links = {
     { label: "Invoice Generator", href: "/invoice" },
     { label: "Rate Calculator", href: "/rate-calculator" },
     { label: "Contract Generator", href: "/contract-generator" },
+    { label: "Project Cost Estimator", href: "/project-cost-estimator" },
     { label: "Join the Directory", href: "/apply" },
   ],
   Legal: [
