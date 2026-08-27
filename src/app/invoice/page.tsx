@@ -87,8 +87,8 @@ export default function InvoicePage() {
             Free Invoice Generator<br className="hidden sm:block" /> for Freelancers
           </h1>
           <p className="text-lg leading-relaxed mb-8" style={{ color: "#C8B8A8" }}>
-            Build a professional, branded invoice in minutes. Add your logo, set your colors, list your services,
-            and export a clean PDF to send your client. No account. No subscription. Always free.
+            Put together a polished, branded invoice in just a few minutes. Drop in your logo, pick your colors, itemize
+            your services, and download a clean PDF ready to send to your client. No account. No subscription. Free every time.
           </p>
           <a
             href="#invoice-tool"
