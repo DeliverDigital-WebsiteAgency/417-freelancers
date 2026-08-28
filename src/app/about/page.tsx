@@ -63,14 +63,14 @@ export default function AboutPage() {
           had just as hard a time reaching local clients.
         </p>
         <p>
-          Whether you&apos;re a startup looking for your first website, an established business
-          that needs a brand refresh, or a nonprofit in need of a copywriter, we&apos;re here to
-          help you find the right person, someone local who understands the Springfield market.
+          From a startup building its very first website to an established company ready for a
+          brand refresh or a nonprofit that needs a copywriter, we help you connect with the right
+          person: a local pro who understands the Springfield market firsthand.
         </p>
         <p>
-          Our directory spans web development, graphic design, digital marketing, photography,
-          videography, copywriting, and more. Every freelancer is reviewed before joining to
-          ensure quality and professionalism.
+          Our directory covers web development, graphic design, digital marketing, photography,
+          videography, copywriting, and plenty more. We review every freelancer before they join,
+          so quality and professionalism come standard.
         </p>
       </div>
 
