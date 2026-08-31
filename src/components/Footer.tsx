@@ -22,6 +22,7 @@ const links = {
     { label: "Contact", href: "/contact" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Resources", href: "/resources" },
+    { label: "How to Hire a Freelancer", href: "/how-to-hire-a-freelancer" },
     { label: "Invoice Generator", href: "/invoice" },
     { label: "Rate Calculator", href: "/rate-calculator" },
     { label: "Contract Generator", href: "/contract-generator" },

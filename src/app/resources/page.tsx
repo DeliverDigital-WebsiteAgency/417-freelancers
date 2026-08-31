@@ -117,6 +117,36 @@ export default function ResourcesPage() {
             </span>
           </Link>
         </div>
+
+        {/* Guides */}
+        <div className="mt-16 mb-8">
+          <h2 className="text-2xl font-bold mb-2" style={{ color: "#2C2420" }}>
+            Guides
+          </h2>
+          <p className="text-base" style={{ color: "#6B5E55" }}>
+            Plain, practical advice for working with local freelancers.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Link
+            href="/how-to-hire-a-freelancer"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                How to Hire a Freelancer in Springfield, MO
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              A step by step guide to hiring local talent in the 417 area, from scoping your project and comparing quotes to vetting candidates and setting up a simple contract.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Read Guide
+            </span>
+          </Link>
+        </div>
       </div>
 
       {/* CTA */}
