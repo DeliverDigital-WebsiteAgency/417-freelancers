@@ -143,9 +143,9 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance videographers in Springfield, MO and the 417 area. Local video production for commercials, social media, events, and brand content.",
     h1: "Videographers in Springfield, MO",
     subheadline: "Local video production talent for every kind of project.",
-    intro: "Video is the highest-performing content format across every platform, from your website to social media to paid advertising. 417 Freelancers connects you with vetted freelance videographers in Springfield and the 417 area who produce professional video content for businesses of every size.",
+    intro: "Video consistently outperforms every other content format, whether it lives on your website, your social media feeds, or your paid advertising. 417 Freelancers connects you with vetted freelance videographers in Springfield and the 417 area who create professional video content for businesses of every size.",
     body: [
-      "Springfield has a growing community of skilled video professionals who work with local businesses, nonprofits, and organizations on everything from short social content to full commercial productions. Hiring locally keeps communication easy and eliminates out-of-town travel costs.",
+      "Springfield is home to a growing community of skilled video professionals who partner with local businesses, nonprofits, and organizations on everything from short social clips to full commercial productions. Keeping the work local makes communication simple and cuts out-of-town travel costs.",
       "Whether you need a brand story video for your homepage, testimonial videos from your customers, event coverage, social media reels, or a regional TV commercial, you will find the right fit among the videographers listed in the 417 Freelancers directory.",
     ],
     highlights: [
