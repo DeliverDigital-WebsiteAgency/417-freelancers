@@ -44,7 +44,7 @@ export default function HomePage() {
             Springfield&apos;s locally vetted freelancers.
           </h1>
           <p className="mt-6 text-xl max-w-2xl mx-auto" style={{ color: "#E8C99A" }}>
-            Connect with skilled professionals across Southwest Missouri. Every freelancer in our directory is hand-reviewed, so you can hire with confidence, skip the guesswork, and get to work faster.
+            Connect with skilled professionals from across Southwest Missouri. Every freelancer in our directory is hand-reviewed, so you can hire with confidence, skip the guesswork, and get your project moving faster.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
