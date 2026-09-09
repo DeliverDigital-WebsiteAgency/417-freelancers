@@ -89,8 +89,8 @@ export default function ContractGeneratorPage() {
             Free Freelance Contract Generator
           </h1>
           <p className="text-lg leading-relaxed mb-8" style={{ color: "#C8B8A8" }}>
-            Build a clear, professional service agreement in minutes. Set your scope, payment terms, and
-            ownership rights, then export a print-ready PDF to send for signature.
+            Put together a clear, professional service agreement in just a few minutes. Spell out your
+            scope, payment terms, and ownership rights, then download a print-ready PDF to send for signature.
           </p>
           <a
             href="#contract-tool"
