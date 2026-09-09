@@ -146,6 +146,24 @@ export default function ResourcesPage() {
               Read Guide
             </span>
           </Link>
+          <Link
+            href="/freelancer-vs-agency"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                Freelancer vs. Agency: Which Should You Hire?
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              A straight comparison of cost, speed, communication, scope, and reliability, with a simple way to decide which fits your project in the 417 area.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Read Guide
+            </span>
+          </Link>
         </div>
       </div>
 

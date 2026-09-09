@@ -23,6 +23,7 @@ const links = {
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Resources", href: "/resources" },
     { label: "How to Hire a Freelancer", href: "/how-to-hire-a-freelancer" },
+    { label: "Freelancer vs. Agency", href: "/freelancer-vs-agency" },
     { label: "Invoice Generator", href: "/invoice" },
     { label: "Rate Calculator", href: "/rate-calculator" },
     { label: "Contract Generator", href: "/contract-generator" },
