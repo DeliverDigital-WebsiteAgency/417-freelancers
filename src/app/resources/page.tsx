@@ -28,7 +28,7 @@ export default function ResourcesPage() {
             Resources for Freelancers
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: "#C8B8A8" }}>
-            Free tools built for freelancers in the 417 area.
+            Free tools made for freelancers working across the 417 area.
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function ResourcesPage() {
             Tools
           </h2>
           <p className="text-base" style={{ color: "#6B5E55" }}>
-            Practical tools that keep your freelance business organized and looking professional.
+            Practical tools that help keep your freelance business organized and looking professional.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
