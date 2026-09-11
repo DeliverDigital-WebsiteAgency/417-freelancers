@@ -17,9 +17,9 @@ const sections = [
     body: (
       <>
         <p>
-          417 Freelancers was built with AI assistance. We use AI tools throughout the project,
-          including code generation, content drafting, copywriting, and SEO research. We believe
-          in being upfront about that.
+          417 Freelancers was built with the help of AI. We rely on AI tools across the project,
+          from code generation and content drafting to copywriting and SEO research. Being upfront
+          about that matters to us.
         </p>
         <p className="mt-4">
           Here is what AI does and does not do in this directory:
