@@ -116,6 +116,24 @@ export default function ResourcesPage() {
               Open Tool
             </span>
           </Link>
+          <Link
+            href="/project-brief-builder"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                Free Project Brief Builder
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              Answer a few plain questions and get a copy-ready project brief to send local freelancers, so you get faster, more accurate quotes. No account required.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Open Tool
+            </span>
+          </Link>
         </div>
 
         {/* Guides */}
