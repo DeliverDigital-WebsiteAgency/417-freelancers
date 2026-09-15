@@ -181,9 +181,9 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance copywriters in Springfield, MO and the 417 area. Local writers for websites, blogs, email marketing, ads, and brand content.",
     h1: "Copywriters in Springfield, MO",
     subheadline: "Words that work, written by someone who knows your market.",
-    intro: "Every piece of writing your business puts out, from your website to your email campaigns to your social posts, shapes how customers perceive you. A skilled copywriter makes your message clear, compelling, and consistent. 417 Freelancers connects you with vetted local writers in Springfield and the 417 area.",
+    intro: "From your website to your email campaigns to your social posts, every piece of writing your business publishes shapes how customers see you. A skilled copywriter keeps that message clear, compelling, and consistent across all of it. 417 Freelancers connects you with vetted local writers across Springfield and the 417 area.",
     body: [
-      "Good copywriting is not about sounding fancy. It is about saying the right thing to the right person at the right time. Local writers bring knowledge of the Springfield market, regional tone, and community context that generic content mills simply cannot replicate.",
+      "Good copywriting is not about sounding fancy. It is about saying the right thing to the right person at the right moment. Local writers understand the Springfield market, the regional tone, and the community context that generic content mills simply cannot replicate.",
       "The copywriters in our directory work across website copy, blog content, email sequences, product descriptions, ad copy, social media content, press releases, and more. Whether you need a full website rewrite or a steady stream of blog posts, you will find the right writer here.",
     ],
     highlights: [
