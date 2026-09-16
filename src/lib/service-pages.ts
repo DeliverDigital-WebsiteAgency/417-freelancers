@@ -219,10 +219,10 @@ export const servicePages: ServicePage[] = [
     metaDescription: "Find vetted freelance digital marketers in Springfield, MO and the 417 area. Local SEO, social media, paid ads, and marketing strategy.",
     h1: "Digital Marketers in Springfield, MO",
     subheadline: "Grow your business with local marketing talent.",
-    intro: "Digital marketing moves fast, and having the right strategy makes the difference between a business that grows and one that stalls. 417 Freelancers connects you with vetted freelance digital marketers in Springfield and the 417 area, covering SEO, paid advertising, social media, email marketing, and full-funnel strategy.",
+    intro: "Digital marketing changes quickly, and the right strategy is often what separates a business that keeps growing from one that stalls. 417 Freelancers connects you with vetted freelance digital marketers across Springfield and the 417 area, covering SEO, paid advertising, social media, email marketing, and full-funnel strategy.",
     body: [
-      "Local marketers understand the Springfield market in ways that out-of-town agencies simply do not. They know the local media landscape, the community events worth sponsoring, the platforms your specific audience actually uses, and the competitive dynamics of doing business in the 417.",
-      "The digital marketers in our directory work with businesses across a wide range of industries and can engage at the level you need, whether that is a one-time audit and strategy, ongoing campaign management, or specialized help with a specific channel.",
+      "Local marketers understand the Springfield market in ways out-of-town agencies simply cannot. They know the regional media landscape, the community events worth sponsoring, the platforms your particular audience actually uses, and the competitive realities of doing business in the 417.",
+      "The digital marketers in our directory serve businesses across a wide range of industries and can plug in at whatever level you need, whether that is a one-time audit and strategy session, ongoing campaign management, or specialized help with a single channel.",
     ],
     highlights: [
       { heading: "Be clear about your goals", body: "More traffic, more leads, more sales, and more brand awareness all require different strategies. Know what success looks like before you hire." },
