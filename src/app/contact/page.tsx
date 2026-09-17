@@ -26,8 +26,8 @@ export default function ContactPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4" style={{ color: "#2C2420" }}>Contact Us</h1>
         <p className="text-lg" style={{ color: "#6B5E55" }}>
-          Have a question about the directory, or thinking about applying as a freelancer? We are
-          always glad to hear from you.
+          Questions about the directory, or thinking about listing yourself as a freelancer? We are
+          always happy to hear from you.
         </p>
       </div>
 
@@ -56,8 +56,8 @@ export default function ContactPage() {
           <div className="rounded-xl p-5" style={{ backgroundColor: "#E8C99A" }}>
             <h3 className="font-semibold mb-2 text-sm" style={{ color: "#2C2420" }}>Want to join the directory?</h3>
             <p className="text-xs leading-relaxed mb-4" style={{ color: "#6B5E55" }}>
-              If you are a freelancer, creative, agency, or side-hustler looking to get listed, head to our apply page. We review
-              applications within 3 business days.
+              Freelancers, creatives, agencies, and side-hustlers are all welcome to get listed. Head over to our apply page, and
+              we review every application within 3 business days.
             </p>
             <Link
               href="/apply"
