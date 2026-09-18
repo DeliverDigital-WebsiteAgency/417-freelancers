@@ -89,8 +89,9 @@ export default function ProjectCostEstimatorPage() {
             Freelance Project Cost Estimator
           </h1>
           <p className="text-lg leading-relaxed mb-8" style={{ color: "#C8B8A8" }}>
-            Wondering what your project should cost before you reach out? Pick a service, a project
-            size, and a timeline to get an honest budget range for hiring a freelancer in the 417.
+            Not sure what your project should cost before you start reaching out? Choose a service,
+            a project size, and a timeline to see an honest budget range for hiring a freelancer in
+            the 417.
           </p>
           <a
             href="#estimator-tool"
@@ -129,10 +130,10 @@ export default function ProjectCostEstimatorPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-1" style={{ color: "#2C2420" }}>
-              Estimate your project
+              Build your estimate
             </h2>
             <p className="text-sm" style={{ color: "#6B5E55" }}>
-              Adjust the options below. Your budget range updates automatically.
+              Set the options below and your budget range updates as you go.
             </p>
           </div>
           <ProjectCostEstimatorClient />
