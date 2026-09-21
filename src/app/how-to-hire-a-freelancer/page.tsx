@@ -177,7 +177,7 @@ export default function HowToHirePage() {
             How to Hire a Freelancer in Springfield, MO
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: "#C8B8A8" }}>
-            A practical walkthrough for hiring local talent in the 417 area, from scoping your project to signing a simple contract.
+            A step by step walkthrough for hiring local talent in the 417 area, from first scoping the project to signing a simple contract.
           </p>
         </div>
       </section>
@@ -186,14 +186,14 @@ export default function HowToHirePage() {
         {/* Intro */}
         <div className="mb-14 space-y-4 text-base leading-relaxed" style={{ color: "#6B5E55" }}>
           <p>
-            Hiring a freelancer is one of the fastest ways to get real help without adding a full time role. Done well, you get an experienced professional focused on your project and a clear result for a price you agreed to in advance. Done carelessly, you get missed deadlines and a budget that keeps creeping.
+            Bringing on a freelancer is one of the quickest ways to get real help without committing to a full time role. Handled well, you get an experienced professional focused on your project and a clear result at a price you settled on in advance. Handled carelessly, you get slipped deadlines and a budget that quietly keeps growing.
           </p>
           <p>
-            The difference is almost always in the setup. This guide walks through the steps that keep a freelance project on track, written for business owners and teams hiring in Springfield and the surrounding 417 area. When you are ready, the{" "}
+            What separates the two is almost always the setup. This guide covers the steps that keep a freelance project on track, written for business owners and teams hiring in Springfield and the surrounding 417 area. Whenever you are ready, the{" "}
             <Link href="/directory" className="font-medium" style={{ color: "#C47A3A" }}>
               freelancer directory
             </Link>{" "}
-            is the place to find local, vetted professionals.
+            is where you will find local, vetted professionals.
           </p>
         </div>
 
