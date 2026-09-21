@@ -16,6 +16,7 @@ const links = {
     { label: "Videographers", href: "/hire/videographers" },
     { label: "Copywriters", href: "/hire/copywriters" },
     { label: "Digital Marketers", href: "/hire/digital-marketers" },
+    { label: "Social Media Managers", href: "/hire/social-media-managers" },
   ],
   Company: [
     { label: "About", href: "/about" },

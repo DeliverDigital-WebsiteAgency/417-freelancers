@@ -251,6 +251,48 @@ export const servicePages: ServicePage[] = [
     directoryCategory: "marketing",
     directoryLabel: "Browse Marketers",
   },
+  {
+    slug: "social-media-managers",
+    metaTitle: "Social Media Managers in Springfield, MO | 417 Freelancers",
+    metaDescription: "Find vetted freelance social media managers in Springfield, MO and the 417 area. Local help with content creation, posting schedules, community management, and paid social.",
+    h1: "Social Media Managers in Springfield, MO",
+    subheadline: "Stay consistent on social without adding a full-time hire.",
+    intro: "Most businesses do not struggle with social media because they lack ideas. They struggle because posting consistently takes more time than anyone has. A freelance social media manager takes that weight off your plate: planning content, writing captions, scheduling posts, answering messages, and reporting on what is working. 417 Freelancers connects you with vetted local professionals across Springfield and the wider 417 area.",
+    body: [
+      "Hiring locally matters more on social media than on almost any other channel. A Springfield-based manager can stop by your shop to shoot real photos and video, cover a community event you are sponsoring, reference local landmarks and seasons that your followers recognize, and speak in a voice that sounds like it comes from here. That local texture is the difference between a feed that feels like your business and a feed that could belong to anyone.",
+      "The social media managers in our directory work at different levels of involvement. Some handle strategy and a full content calendar across several platforms. Others focus on one channel, create content you publish yourself, or step in to clean up and relaunch an account that has gone quiet. Whether you need someone to own social entirely or just to keep a steady rhythm going, you can find the right scope in the 417 Freelancers directory.",
+    ],
+    highlights: [
+      { heading: "Decide who creates the content", body: "Management and content creation are separate jobs. Be clear about whether the freelancer is shooting photos and video themselves, editing what you send, or working from a library you already have. This single question drives most of the price difference between quotes." },
+      { heading: "Agree on volume and platforms", body: "Get the specifics in writing: how many posts, stories, and reels per month, on which platforms, and who approves them before they publish. Vague retainers are where social media relationships usually go wrong." },
+      { heading: "Keep account ownership yours", body: "Your business should own every profile, page, and ad account, with the freelancer added as a manager or admin. Never let a vendor create your accounts under their own personal login, and remove access when the engagement ends." },
+      { heading: "Ask how they measure success", body: "Follower count is the easiest number to grow and the least useful. Better freelancers talk about saves, shares, profile visits, message volume, website clicks, and leads, and they will tell you which of those your business should actually care about." },
+    ],
+    faqs: [
+      {
+        question: "How much does a freelance social media manager cost in Springfield, MO?",
+        answer: "Social media management in the 417 area is usually priced as a monthly retainer, commonly $400 to $1,500 per month depending on how many platforms are covered, how much content is produced, and whether the freelancer creates original photo and video. Content-only packages and one-time account setups are often quoted separately. Paid social advertising is typically billed as a percentage of ad spend or a flat management fee on top of the retainer.",
+      },
+      {
+        question: "Which social platforms should my business be on?",
+        answer: "Fewer than you think, done well. For most local businesses in the 417, Facebook and Instagram carry the most weight, with Google Business Profile posts helping in local search. LinkedIn matters for business-to-business and professional services, and TikTok or YouTube make sense if you can sustain video. A good freelancer will recommend cutting platforms you cannot maintain rather than adding more.",
+      },
+      {
+        question: "What is the difference between social media management and paid social advertising?",
+        answer: "Management covers your organic presence: content, posting, captions, and responding to comments and messages. Paid social means running ads through the platform's ad manager with a budget behind them, including audience targeting, creative testing, and tracking. They complement each other, but they are different skill sets. If you need both, confirm the freelancer actually does both before you sign.",
+      },
+      {
+        question: "How long before social media produces results?",
+        answer: "Engagement and message volume often improve within the first month or two once posting becomes consistent. Meaningful audience growth and a steady flow of inbound leads usually take three to six months. Paid social can generate traffic and leads much faster, within days, because you are buying reach rather than earning it. Be skeptical of anyone promising rapid organic growth.",
+      },
+      {
+        question: "Should I hire a social media manager or handle it in house?",
+        answer: "If someone on your team genuinely enjoys it and has protected time each week, in house often wins because they know the business best. The problem is that social media is usually the first thing dropped when the week gets busy. A freelancer gives you an outside deadline and a professional standard for a fraction of the cost of a full-time hire, and many will train your team as part of the engagement.",
+      },
+    ],
+    directoryCategory: "marketing",
+    directoryLabel: "Browse Marketers",
+  },
 ];
 
 export function getServicePage(slug: string): ServicePage | undefined {

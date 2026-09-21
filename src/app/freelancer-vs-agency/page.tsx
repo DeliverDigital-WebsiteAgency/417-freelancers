@@ -112,6 +112,7 @@ const hireLinks = [
   { href: "/hire/videographers", label: "Videographers" },
   { href: "/hire/copywriters", label: "Copywriters" },
   { href: "/hire/digital-marketers", label: "Digital Marketers" },
+  { href: "/hire/social-media-managers", label: "Social Media Managers" },
 ];
 
 const faqs = [
