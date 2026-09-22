@@ -18,22 +18,22 @@ const features = [
   {
     icon: Target,
     title: "Set your income goal",
-    body: "Start with the take-home pay you actually want, not a guess at what clients might pay.",
+    body: "Begin with the take-home pay you actually want, rather than a guess at what clients might pay.",
   },
   {
     icon: Clock,
     title: "Account for real hours",
-    body: "Only billable hours count. The calculator factors in admin time, time off, and non-billable work.",
+    body: "Only billable hours count, so the calculator accounts for admin time, time off, and work you cannot bill.",
   },
   {
     icon: Calculator,
     title: "Cover taxes and expenses",
-    body: "Build in a buffer for self-employment tax, software, insurance, and other business costs.",
+    body: "Leave room for self-employment tax, software, insurance, and the rest of your business costs.",
   },
   {
     icon: TrendingUp,
     title: "Price full projects",
-    body: "Turn your hourly rate into a day rate, weekly rate, or a quote for a specific project.",
+    body: "Convert your hourly rate into a day rate, a weekly rate, or a quote for one specific project.",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function RateCalculatorPage() {
               Calculate your rate
             </h2>
             <p className="text-sm" style={{ color: "#6B5E55" }}>
-              Adjust the numbers below. Your target rate updates automatically.
+              Adjust the inputs below and your target rate recalculates as you type.
             </p>
           </div>
           <RateCalculatorClient />
