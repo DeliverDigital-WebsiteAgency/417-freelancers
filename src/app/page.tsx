@@ -118,9 +118,9 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-20 text-white text-center" style={{ backgroundColor: "#7C4A1E" }}>
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Are you a local freelancer?</h2>
+          <h2 className="text-3xl font-bold mb-4">Freelancing in the 417?</h2>
           <p className="mb-8" style={{ color: "#E8C99A" }}>
-            Get listed and start connecting with clients in the 417.
+            Add your profile to the directory and start meeting clients right here in Springfield and the surrounding area.
           </p>
           <Link
             href="/apply"
