@@ -79,8 +79,8 @@ export function ApplyForm() {
         </div>
         <h1 className="text-2xl font-bold mb-3" style={{ color: "#2C2420" }}>Application Received</h1>
         <p className="text-base leading-relaxed" style={{ color: "#6B5E55" }}>
-          Thanks for applying to the 417 Freelancers directory. We review every application
-          manually and will reach out to you at{" "}
+          Thank you for applying to the 417 Freelancers directory. Every application is reviewed
+          by hand, and we will get in touch at{" "}
           <strong style={{ color: "#2C2420" }}>{form.email || "your email"}</strong> within a few business days.
         </p>
         <a href="/directory" className="inline-block mt-8 px-6 py-3 text-sm font-medium rounded-md btn-primary">
@@ -164,7 +164,7 @@ export function ApplyForm() {
           <h2 className="text-lg font-semibold mb-5 pb-2 border-b" style={{ color: "#2C2420", borderColor: "#E8C99A" }}>
             Skills
           </h2>
-          <p className="text-sm mb-4" style={hintStyle}>List up to three skills. These appear as tags on your profile.</p>
+          <p className="text-sm mb-4" style={hintStyle}>Add up to three skills. Each one shows as a tag on your profile.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div>
               <label className={labelClass} style={labelStyle}>Skill 1</label>
