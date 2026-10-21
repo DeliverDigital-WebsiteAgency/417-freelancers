@@ -31,6 +31,7 @@ const links = {
     { label: "Contract Generator", href: "/contract-generator" },
     { label: "Project Cost Estimator", href: "/project-cost-estimator" },
     { label: "Project Brief Builder", href: "/project-brief-builder" },
+    { label: "Quote Comparison Tool", href: "/freelancer-quote-comparison" },
     { label: "Join the Directory", href: "/apply" },
   ],
   Legal: [
