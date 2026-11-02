@@ -1,0 +1,19 @@
+# Normalize all text files to LF inside the repository.
+# Without this, Windows editors and tooling rewrite files with CRLF endings,
+# which makes git report every line of a file as changed even when the
+# content is identical. See CLAUDE.md for the scheduled-run git workflow.
+* text=auto eol=lf
+
+# Binary assets: never convert line endings.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.svg text eol=lf
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
