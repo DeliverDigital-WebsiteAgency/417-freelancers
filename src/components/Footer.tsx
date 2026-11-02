@@ -26,6 +26,7 @@ const links = {
     { label: "How to Hire a Freelancer", href: "/how-to-hire-a-freelancer" },
     { label: "Freelancer vs. Agency", href: "/freelancer-vs-agency" },
     { label: "Freelancer Onboarding Checklist", href: "/freelancer-onboarding-checklist" },
+    { label: "How to Get Freelance Clients", href: "/how-to-get-freelance-clients" },
     { label: "Invoice Generator", href: "/invoice" },
     { label: "Rate Calculator", href: "/rate-calculator" },
     { label: "Contract Generator", href: "/contract-generator" },

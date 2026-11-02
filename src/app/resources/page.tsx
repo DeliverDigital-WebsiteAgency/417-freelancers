@@ -160,7 +160,7 @@ export default function ResourcesPage() {
             Guides
           </h2>
           <p className="text-base" style={{ color: "#6B5E55" }}>
-            Plain, practical advice for working with local freelancers.
+            Plain, practical advice for hiring local freelancers, and for freelancers building a client base.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,6 +213,24 @@ export default function ResourcesPage() {
             </div>
             <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
               What to line up, share, and confirm in the first week after you hire, so the project starts smoothly and stays on track.
+            </p>
+            <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
+              Read Guide
+            </span>
+          </Link>
+          <Link
+            href="/how-to-get-freelance-clients"
+            className="group flex flex-col rounded-lg p-6 border transition-shadow hover:shadow-md"
+            style={{ backgroundColor: "#FFFFFF", borderColor: "#E8C99A" }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <h3 className="text-base font-semibold leading-snug" style={{ color: "#2C2420" }}>
+                How to Get Freelance Clients in Springfield, MO
+              </h3>
+              <ArrowRight size={15} className="mt-0.5 shrink-0" style={{ color: "#C47A3A" }} />
+            </div>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: "#6B5E55" }}>
+              Where local freelance work actually comes from, covering positioning, getting found, portfolios, referrals, networking, outreach, and repeat clients.
             </p>
             <span className="mt-4 text-sm font-medium group-hover:underline" style={{ color: "#C47A3A" }}>
               Read Guide
