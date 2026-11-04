@@ -31,8 +31,8 @@ const sections = [
           <li><strong style={{ color: "#2C2420" }}>No AI-generated profiles:</strong> All freelancer bios, skills, and information come from the freelancers themselves.</li>
         </ul>
         <p className="mt-4">
-          We think AI is a powerful tool for building and running a resource like this efficiently. Using it
-          is not something we hide. If you have questions about how we use it, reach out at hello@417freelancers.com.
+          We see AI as a powerful way to build and run a resource like this efficiently, and we do not
+          hide that we use it. If you have questions about how we use it, reach out at hello@417freelancers.com.
         </p>
       </>
     ),
@@ -42,11 +42,11 @@ const sections = [
     heading: "What is 417 Freelancers?",
     body: (
       <p>
-        417 Freelancers is a free, vetted online directory of independent professionals based across
-        the broader 417 area (Southwest Missouri). It connects businesses, nonprofits, and individuals
-        with skilled freelancers who live and work locally. Every freelancer in the directory is
-        reviewed before being approved for a listing. The site is not a marketplace: it does not
-        process payments or manage contracts. Think of it as a discovery tool for finding local talent.
+        417 Freelancers is a free, vetted online directory of independent professionals across the
+        wider 417 area (Southwest Missouri). It helps businesses, nonprofits, and individuals find
+        skilled freelancers who live and work locally. Each freelancer is reviewed before being
+        approved for a listing. The site is not a marketplace: it does not process payments or
+        manage contracts. Think of it as a discovery tool for finding local talent.
       </p>
     ),
   },
