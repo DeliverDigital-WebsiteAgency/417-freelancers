@@ -177,10 +177,10 @@ export default function FreelancerVsAgencyPage() {
         {/* Intro */}
         <div className="mb-14 space-y-4 text-base leading-relaxed" style={{ color: "#6B5E55" }}>
           <p>
-            When you need a website, a brand, a video, or a marketing push, one of the first decisions is who does the work: an independent freelancer or a full service agency. Both can produce excellent results. They are simply built for different kinds of projects, and picking the wrong one usually costs you either money you did not need to spend or coordination you did not want to give away.
+            Whether you need a website, a brand, a video, or a marketing push, one of the first questions is who will do the work: an independent freelancer or a full service agency. Both can deliver excellent results. They are just built for different kinds of projects, and choosing the wrong one usually means paying for more than you needed or taking on coordination you would rather not handle.
           </p>
           <p>
-            This guide lays out how the two really differ, where each one shines, and a simple way to decide. When you are ready to find local talent, the{" "}
+            This guide explains how the two really differ, where each one shines, and a simple way to decide. When you are ready to find local talent, the{" "}
             <Link href="/directory" className="font-medium" style={{ color: "#C47A3A" }}>
               freelancer directory
             </Link>{" "}
