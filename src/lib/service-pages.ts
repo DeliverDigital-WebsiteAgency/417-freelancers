@@ -293,6 +293,48 @@ export const servicePages: ServicePage[] = [
     directoryCategory: "marketing",
     directoryLabel: "Browse Marketers",
   },
+  {
+    slug: "seo-specialists",
+    metaTitle: "SEO Specialists in Springfield, MO | 417 Freelancers",
+    metaDescription: "Find vetted freelance SEO specialists in Springfield, MO and the 417 area. Local help with Google Business Profile, on-page SEO, technical fixes, and content that brings in customers.",
+    h1: "SEO Specialists in Springfield, MO",
+    subheadline: "Get found by people in the 417 who are already searching for what you do.",
+    intro: "When someone in Springfield searches for a plumber, a dentist, or a web designer, the businesses that show up first get most of the calls. A freelance SEO specialist helps your business earn those spots: fixing technical problems on your site, tightening the pages that matter, building out your Google Business Profile, and creating content that answers real customer questions. 417 Freelancers connects you with vetted local professionals across Springfield and the wider 417 area.",
+    body: [
+      "Local knowledge carries real weight in search. A specialist who works in the 417 understands how people here actually search, which neighborhoods and nearby towns matter to your business, and which local directories and organizations are worth a listing. They can also meet you in person, see your location, and learn how you really operate, which makes the pages and profiles they write more accurate and more convincing.",
+      "SEO freelancers in our directory work in different ways. Some run a full monthly program covering technical fixes, content, and reporting. Others do a one-time audit and hand you a prioritized list, or focus narrowly on local search and Google Business Profile. The right fit depends on whether you want someone to own search long term or simply point your team in the right direction.",
+    ],
+    highlights: [
+      { heading: "Start with an audit", body: "A good engagement usually begins with a review of your site, your Google Business Profile, and how you currently show up for the searches that matter. Ask what the audit covers and whether you keep the findings if you decide not to continue." },
+      { heading: "Local search and website SEO are different jobs", body: "Showing up in the map results depends heavily on your Google Business Profile, reviews, and consistent business information. Ranking in the regular results depends more on your website. Confirm which one you are buying, or whether you need both." },
+      { heading: "Insist on plain-language reporting", body: "You should be able to see what was done each month and what changed: calls, form submissions, direction requests, and visits from search. Be cautious of reports that lean on rankings for obscure phrases that no customer would ever type." },
+      { heading: "Own your accounts and your site", body: "Your business should hold the admin logins for your website, Google Business Profile, Search Console, and analytics, with the freelancer added as a user. That keeps your work and your data yours if the relationship ends." },
+    ],
+    faqs: [
+      {
+        question: "How much does a freelance SEO specialist cost in Springfield, MO?",
+        answer: "Pricing varies widely with scope. A one-time audit is typically quoted as a flat project fee, while ongoing SEO is usually a monthly retainer. Local-only work such as Google Business Profile management tends to cost less than a full program that includes content and technical work on your website. Get quotes from a few specialists and compare what each one actually includes rather than only the monthly number.",
+      },
+      {
+        question: "How long does SEO take to work?",
+        answer: "Search results move slowly. Fixing a broken Google Business Profile or a clear technical problem can show an effect within weeks, but earning new rankings through content and authority commonly takes several months. Anyone who guarantees a number one ranking or a specific timeline is making a promise nobody can keep, because search engines control the results, not the freelancer.",
+      },
+      {
+        question: "Do I need SEO if I already run ads?",
+        answer: "Ads and SEO serve different purposes. Ads deliver visibility for as long as you pay for them, while SEO builds visibility that continues without per-click costs. Many local businesses use both: ads for quick results and SEO to build a steadier base over time. A good specialist will look at your goals and budget before recommending a mix.",
+      },
+      {
+        question: "What should I ask an SEO specialist before hiring?",
+        answer: "Ask what they would look at first on your site, how they approach local search, how they report results, and what you will have access to when the engagement ends. Ask for examples of work with local businesses and whether those clients are willing to talk with you. Be wary of secret methods, link-buying schemes, or refusal to explain what they are doing.",
+      },
+      {
+        question: "Can I do SEO myself?",
+        answer: "Many basics are within reach for a motivated owner: claiming your Google Business Profile, asking happy customers for reviews, and keeping your business information consistent. A freelancer becomes worth it when you have limited time, a site with technical issues, or competitors who are clearly ahead of you in local results. Some specialists will coach your team instead of doing the work for you.",
+      },
+    ],
+    directoryCategory: "marketing",
+    directoryLabel: "Browse Marketers",
+  },
 ];
 
 export function getServicePage(slug: string): ServicePage | undefined {
